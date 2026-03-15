@@ -7,7 +7,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 export default function HeroSection() {
   const { t } = useLanguage();
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24">
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-[#0a0a0a]" />

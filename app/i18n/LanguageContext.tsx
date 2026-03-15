@@ -47,11 +47,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const saved = localStorage.getItem("iclaw-lang") as Locale | null;
     if (saved && (saved === "en" || saved === "zh")) {
       setLocaleState(saved);
-    } else {
-      const browserLang = navigator.language;
-      if (browserLang.startsWith("zh")) {
-        setLocaleState("zh");
-      }
     }
     setMounted(true);
   }, []);
