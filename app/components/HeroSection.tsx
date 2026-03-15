@@ -91,12 +91,12 @@ export default function HeroSection() {
         transition={{ duration: 1.2, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
         className="relative z-10 mt-16 mb-8 w-full max-w-3xl mx-auto px-6"
       >
-        <div className="relative aspect-[16/10] rounded-3xl overflow-hidden glow-blue">
+        <div className="relative aspect-[16/10] overflow-hidden">
           <Image
-            src="/iclaw-hero.jpg"
+            src="/iclaw-hero.png"
             alt="iClaw - Your Personal AI Computer"
             fill
-            className="object-cover object-center"
+            className="object-contain object-center drop-shadow-[0_20px_60px_rgba(41,151,255,0.15)]"
             priority
           />
         </div>

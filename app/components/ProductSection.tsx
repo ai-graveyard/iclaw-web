@@ -29,13 +29,13 @@ export default function ProductSection() {
               whileInView={{ scale: [0.95, 1] }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative aspect-[4/3] rounded-3xl overflow-hidden"
+              className="relative aspect-[4/3] overflow-hidden"
             >
               <Image
-                src="/iclaw-product.jpg"
+                src="/iclaw-product.png"
                 alt="iClaw AI Computer - front view"
                 fill
-                className="object-cover object-center"
+                className="object-contain object-center drop-shadow-[0_20px_60px_rgba(41,151,255,0.12)]"
               />
             </motion.div>
           </div>
