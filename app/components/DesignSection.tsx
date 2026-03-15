@@ -3,32 +3,24 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import FadeIn from "./FadeIn";
-
-const specs = [
-  { label: "OS", value: "Linux" },
-  { label: "Processor", value: "RK / Allwinner Quad-core" },
-  { label: "Memory", value: "4 GB" },
-  { label: "Storage", value: "32 GB + SD" },
-  { label: "Software", value: "OpenClaw" },
-  { label: "Connectivity", value: "WiFi" },
-  { label: "Noise", value: "Silent operation" },
-  { label: "Footprint", value: "Compact desktop" },
-];
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function DesignSection() {
+  const { t } = useLanguage();
+  const specItems = t("design.specs") as { label: string; value: string }[];
+
   return (
     <section id="design" className="relative py-32 px-6 overflow-hidden">
       <div className="section-divider max-w-6xl mx-auto mb-32" />
 
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-20">
-          <p className="text-[#a1a1a6] text-lg font-medium mb-4">Design</p>
+          <p className="text-[#a1a1a6] text-lg font-medium mb-4">{t("design.label") as string}</p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
-            Crafted with precision.
+            {t("design.heading") as string}
           </h2>
           <p className="text-xl text-[#86868b] max-w-2xl mx-auto">
-            A desktop AI server that looks as good as it performs. Minimal,
-            silent, and built to last.
+            {t("design.desc") as string}
           </p>
         </FadeIn>
 
@@ -43,7 +35,7 @@ export default function DesignSection() {
             >
               <Image
                 src="/iclaw-design.png"
-                alt="iClaw industrial design - premium aluminum body"
+                alt={t("design.imageAlt") as string}
                 fill
                 className="object-contain object-center drop-shadow-[0_20px_60px_rgba(41,151,255,0.12)]"
               />
@@ -53,8 +45,8 @@ export default function DesignSection() {
 
         {/* Specs */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {specs.map((spec, i) => (
-            <FadeIn key={spec.label} delay={i * 0.1}>
+          {specItems.map((spec, i) => (
+            <FadeIn key={i} delay={i * 0.1}>
               <div className="text-center py-4">
                 <p className="text-[#86868b] text-sm mb-2">{spec.label}</p>
                 <p className="text-white text-lg font-semibold">{spec.value}</p>

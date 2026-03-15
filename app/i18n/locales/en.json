@@ -1,0 +1,274 @@
+{
+  "nav": {
+    "features": "Features",
+    "aiPower": "AI Power",
+    "useCases": "Use Cases",
+    "design": "Design",
+    "pricing": "Pricing",
+    "buyNow": "Buy Now"
+  },
+  "hero": {
+    "title": "iClaw",
+    "subtitle": "AI Belongs to Everyone",
+    "desc": "Your personal AI computer. Powerful, private, and ready out of the box.",
+    "preorder": "Pre-order Now",
+    "learnMore": "Learn More",
+    "imageAlt": "iClaw - Your Personal AI Computer"
+  },
+  "problem": {
+    "label": "The Problem",
+    "heading1": "AI is powerful.",
+    "heading2": "But not for everyone. Yet.",
+    "desc": "Most people can't deploy models, configure APIs, or manage infrastructure. The AI revolution is leaving everyday users behind.",
+    "items": [
+      {
+        "title": "Complex Deployment",
+        "desc": "Setting up AI models requires technical expertise most people don't have."
+      },
+      {
+        "title": "Privacy Concerns",
+        "desc": "Cloud AI means your data travels to someone else's servers."
+      },
+      {
+        "title": "Expensive APIs",
+        "desc": "Monthly subscriptions and per-token pricing add up fast."
+      },
+      {
+        "title": "Fragmented Tools",
+        "desc": "Switching between dozens of AI apps with no unified experience."
+      }
+    ]
+  },
+  "vision": {
+    "label": "Our Vision",
+    "heading1": "AI shouldn't belong",
+    "heading2": "only to engineers.",
+    "desc": "We believe everyone deserves access to AI — without needing a computer science degree. iClaw puts the power of a personal AI factory in your hands.",
+    "pillars": [
+      {
+        "number": "01",
+        "title": "Accessible",
+        "desc": "No coding, no configuration. Just plug in and start creating."
+      },
+      {
+        "number": "02",
+        "title": "Private",
+        "desc": "Your data stays on your device. Always under your control."
+      },
+      {
+        "number": "03",
+        "title": "Powerful",
+        "desc": "Run state-of-the-art AI models locally with desktop-grade performance."
+      }
+    ]
+  },
+  "product": {
+    "label": "Meet iClaw",
+    "heading": "Your personal AI computer.",
+    "desc": "A beautifully designed device that brings AI to your desktop. No cloud dependency. No complicated setup. Just pure AI power.",
+    "imageAlt": "iClaw AI Computer - front view"
+  },
+  "features": {
+    "label": "Core Features",
+    "heading1": "Everything you need.",
+    "heading2": "Nothing you don't.",
+    "items": [
+      {
+        "title": "Ready Out of the Box",
+        "desc": "Power on and start using AI immediately. Zero configuration needed."
+      },
+      {
+        "title": "Local Data Security",
+        "desc": "All data stays on your device. No uploads, no cloud storage, no tracking."
+      },
+      {
+        "title": "Continuous Companion",
+        "desc": "Always-on AI that learns your preferences and grows with you over time."
+      },
+      {
+        "title": "Simple Interface",
+        "desc": "An intuitive GUI designed for everyone — from students to professionals."
+      }
+    ]
+  },
+  "aiPower": {
+    "label": "AI Power",
+    "heading": "The future of productivity.",
+    "desc": "Run powerful AI agents, workflows, and automations — all locally on your iClaw.",
+    "capabilities": [
+      {
+        "title": "AI Writing",
+        "desc": "Generate articles, marketing copy, emails, and creative content with natural language."
+      },
+      {
+        "title": "AI Coding",
+        "desc": "Write, debug, and refactor code across multiple programming languages."
+      },
+      {
+        "title": "AI Automation",
+        "desc": "Build workflows and automate repetitive tasks with intelligent agents."
+      },
+      {
+        "title": "AI Analytics",
+        "desc": "Analyze data, generate insights, and create visualizations from any dataset."
+      }
+    ],
+    "tags": ["AI Agents", "Smart Workflows", "Task Automation", "Plugin System", "API Access"]
+  },
+  "useCases": {
+    "label": "Use Cases",
+    "heading": "Built for how you work.",
+    "desc": "No matter your profession, iClaw adapts to your workflow and amplifies your output.",
+    "items": [
+      {
+        "role": "Entrepreneurs",
+        "tasks": ["Write business plans", "Automate customer support", "Generate marketing content"]
+      },
+      {
+        "role": "Designers",
+        "tasks": ["Generate creative briefs", "Automate asset production", "AI-powered brainstorming"]
+      },
+      {
+        "role": "Students",
+        "tasks": ["Research assistance", "Essay writing support", "Study material generation"]
+      },
+      {
+        "role": "Marketers",
+        "tasks": ["Social media automation", "Content scheduling", "Campaign analytics"]
+      },
+      {
+        "role": "Developers",
+        "tasks": ["Code generation", "API testing automation", "Documentation writing"]
+      },
+      {
+        "role": "Creators",
+        "tasks": ["Video script writing", "Podcast show notes", "Newsletter generation"]
+      }
+    ]
+  },
+  "design": {
+    "label": "Design",
+    "heading": "Crafted with precision.",
+    "desc": "A desktop AI server that looks as good as it performs. Minimal, silent, and built to last.",
+    "imageAlt": "iClaw industrial design - premium aluminum body",
+    "specs": [
+      { "label": "OS", "value": "Linux" },
+      { "label": "Processor", "value": "RK / Allwinner Quad-core" },
+      { "label": "Memory", "value": "4 GB" },
+      { "label": "Storage", "value": "32 GB + SD" },
+      { "label": "Software", "value": "OpenClaw" },
+      { "label": "Connectivity", "value": "WiFi" },
+      { "label": "Noise", "value": "Silent operation" },
+      { "label": "Footprint", "value": "Compact desktop" }
+    ]
+  },
+  "security": {
+    "label": "Security & Privacy",
+    "heading": "Your data stays yours.",
+    "desc": "iClaw runs entirely on your local network. Your conversations, files, and AI models never leave your device.",
+    "items": [
+      {
+        "title": "Local Processing",
+        "desc": "All AI computation happens on-device. No cloud, no latency, no data leaks."
+      },
+      {
+        "title": "Encrypted Storage",
+        "desc": "All local data is encrypted at rest using industry-standard protocols."
+      },
+      {
+        "title": "Zero Telemetry",
+        "desc": "No tracking, no analytics, no usage data collection. Absolute privacy."
+      }
+    ]
+  },
+  "ecosystem": {
+    "label": "Ecosystem",
+    "heading1": "More than a device.",
+    "heading2": "It's a platform.",
+    "desc": "iClaw is backed by a growing ecosystem of agents, skills, plugins, and a vibrant community.",
+    "items": [
+      { "title": "AI Agents", "desc": "Autonomous agents that execute complex tasks on your behalf." },
+      { "title": "Workflows", "desc": "Visual workflow builder for multi-step AI automations." },
+      { "title": "Plugin System", "desc": "Extend iClaw with community-built plugins and integrations." },
+      { "title": "API Access", "desc": "Full API for developers to build on top of iClaw." },
+      { "title": "Skills Library", "desc": "Pre-built AI skills for common tasks, ready to deploy instantly." },
+      { "title": "Community", "desc": "Join a global community of iClaw users sharing agents and skills." }
+    ]
+  },
+  "comparison": {
+    "label": "Comparison",
+    "heading": "See the difference.",
+    "headers": { "cloudAI": "Cloud AI", "selfHosted": "Self-hosted", "iclaw": "iClaw" },
+    "rows": [
+      { "feature": "Privacy", "cloud": "Data on remote servers", "local": "Complex self-hosting", "iclaw": "100% local, zero leaks" },
+      { "feature": "Setup", "cloud": "Account + API keys", "local": "Hours of configuration", "iclaw": "Plug in and go" },
+      { "feature": "Cost", "cloud": "Monthly subscriptions", "local": "Expensive hardware", "iclaw": "One-time purchase" },
+      { "feature": "Performance", "cloud": "Latency dependent", "local": "Varies widely", "iclaw": "Optimized & consistent" },
+      { "feature": "Offline Use", "cloud": "No", "local": "Yes", "iclaw": "Yes" },
+      { "feature": "Updates", "cloud": "Provider controlled", "local": "Manual", "iclaw": "One-click OTA" }
+    ]
+  },
+  "pricing": {
+    "label": "Pricing",
+    "heading": "Invest in your AI future.",
+    "desc": "One-time purchase. No subscriptions. No hidden fees. AI that truly belongs to you.",
+    "mostPopular": "Most Popular",
+    "plans": [
+      {
+        "name": "iClaw Lite",
+        "price": "$299",
+        "desc": "Perfect for personal use and getting started with AI.",
+        "features": ["Ready-to-use AI models", "Simple GUI interface", "Local data privacy", "Community support", "Basic AI agents"],
+        "cta": "Pre-order Lite"
+      },
+      {
+        "name": "iClaw Pro",
+        "price": "$499",
+        "desc": "For professionals and small teams who need more power.",
+        "features": ["All Lite features", "Advanced AI models", "Workflow automation", "Plugin ecosystem", "Priority support", "API access"],
+        "cta": "Pre-order Pro"
+      },
+      {
+        "name": "iClaw Enterprise",
+        "price": "Contact Us",
+        "desc": "For organizations requiring custom deployment and support.",
+        "features": ["All Pro features", "Custom model integration", "Team management", "Dedicated support", "SLA guarantee", "On-site setup"],
+        "cta": "Contact Sales"
+      }
+    ]
+  },
+  "cta": {
+    "heading1": "Start building",
+    "heading2": "with AI.",
+    "desc": "AI belongs to everyone. Join thousands who are already using iClaw to power their work and creativity.",
+    "preorder": "Pre-order Now",
+    "community": "Join Community"
+  },
+  "footer": {
+    "tagline": "AI belongs to everyone.",
+    "copyright": "iClaw. All rights reserved.",
+    "sections": {
+      "product": "Product",
+      "company": "Company",
+      "support": "Support",
+      "legal": "Legal"
+    },
+    "links": {
+      "features": "Features",
+      "aiPower": "AI Power",
+      "useCases": "Use Cases",
+      "pricing": "Pricing",
+      "about": "About",
+      "blog": "Blog",
+      "careers": "Careers",
+      "press": "Press",
+      "documentation": "Documentation",
+      "community": "Community",
+      "contact": "Contact",
+      "faq": "FAQ",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies"
+    }
+  }
+}

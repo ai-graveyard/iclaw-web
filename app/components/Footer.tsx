@@ -1,44 +1,48 @@
 "use client";
 
-const footerLinks = [
-  {
-    title: "Product",
-    links: [
-      { label: "Features", href: "#features" },
-      { label: "AI Power", href: "#ai-power" },
-      { label: "Use Cases", href: "#use-cases" },
-      { label: "Pricing", href: "#pricing" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Press", href: "#" },
-    ],
-  },
-  {
-    title: "Support",
-    links: [
-      { label: "Documentation", href: "#" },
-      { label: "Community", href: "#" },
-      { label: "Contact", href: "#" },
-      { label: "FAQ", href: "#" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
-      { label: "Cookies", href: "#" },
-    ],
-  },
-];
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const footerLinks = [
+    {
+      title: t("footer.sections.product") as string,
+      links: [
+        { label: t("footer.links.features") as string, href: "#features" },
+        { label: t("footer.links.aiPower") as string, href: "#ai-power" },
+        { label: t("footer.links.useCases") as string, href: "#use-cases" },
+        { label: t("footer.links.pricing") as string, href: "#pricing" },
+      ],
+    },
+    {
+      title: t("footer.sections.company") as string,
+      links: [
+        { label: t("footer.links.about") as string, href: "#" },
+        { label: t("footer.links.blog") as string, href: "#" },
+        { label: t("footer.links.careers") as string, href: "#" },
+        { label: t("footer.links.press") as string, href: "#" },
+      ],
+    },
+    {
+      title: t("footer.sections.support") as string,
+      links: [
+        { label: t("footer.links.documentation") as string, href: "#" },
+        { label: t("footer.links.community") as string, href: "#" },
+        { label: t("footer.links.contact") as string, href: "#" },
+        { label: t("footer.links.faq") as string, href: "#" },
+      ],
+    },
+    {
+      title: t("footer.sections.legal") as string,
+      links: [
+        { label: t("footer.links.privacy") as string, href: "#" },
+        { label: t("footer.links.terms") as string, href: "#" },
+        { label: t("footer.links.cookies") as string, href: "#" },
+      ],
+    },
+  ];
+
   return (
     <footer className="border-t border-white/[0.06] py-16 px-6">
       <div className="max-w-6xl mx-auto">
@@ -49,7 +53,7 @@ export default function Footer() {
               iClaw
             </a>
             <p className="text-sm text-[#86868b] mt-3 leading-relaxed">
-              AI belongs to everyone.
+              {t("footer.tagline") as string}
             </p>
           </div>
 
@@ -78,7 +82,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-white/[0.06] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[#424245]">
-            &copy; {new Date().getFullYear()} iClaw. All rights reserved.
+            &copy; {new Date().getFullYear()} {t("footer.copyright") as string}
           </p>
           <div className="flex items-center gap-6">
             {/* Social icons */}

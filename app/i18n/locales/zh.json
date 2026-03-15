@@ -1,0 +1,274 @@
+{
+  "nav": {
+    "features": "核心功能",
+    "aiPower": "AI 能力",
+    "useCases": "使用场景",
+    "design": "设计",
+    "pricing": "价格",
+    "buyNow": "立即购买"
+  },
+  "hero": {
+    "title": "iClaw",
+    "subtitle": "AI 属于每一个人",
+    "desc": "你的私人 AI 电脑。强大、隐私、开箱即用。",
+    "preorder": "立即预购",
+    "learnMore": "了解更多",
+    "imageAlt": "iClaw - 你的私人 AI 电脑"
+  },
+  "problem": {
+    "label": "现状问题",
+    "heading1": "AI 很强大。",
+    "heading2": "但并非人人可用。",
+    "desc": "大多数人无法部署模型、配置 API 或管理基础设施。AI 革命正在将普通用户抛在身后。",
+    "items": [
+      {
+        "title": "部署复杂",
+        "desc": "搭建 AI 模型需要大多数人不具备的技术能力。"
+      },
+      {
+        "title": "隐私担忧",
+        "desc": "云端 AI 意味着你的数据会传输到别人的服务器上。"
+      },
+      {
+        "title": "API 费用高昂",
+        "desc": "按月订阅和按量计费的成本很快就会累积。"
+      },
+      {
+        "title": "工具碎片化",
+        "desc": "在数十个 AI 应用之间切换，缺乏统一的使用体验。"
+      }
+    ]
+  },
+  "vision": {
+    "label": "我们的愿景",
+    "heading1": "AI 不应该只属于",
+    "heading2": "工程师。",
+    "desc": "我们相信每个人都应该拥有使用 AI 的权利 —— 无需计算机学位。iClaw 将 AI 工厂的力量交到你的手中。",
+    "pillars": [
+      {
+        "number": "01",
+        "title": "易于使用",
+        "desc": "无需编程，无需配置。插上电源，即刻开始创造。"
+      },
+      {
+        "number": "02",
+        "title": "隐私安全",
+        "desc": "数据留在你的设备上，始终由你掌控。"
+      },
+      {
+        "number": "03",
+        "title": "性能强劲",
+        "desc": "在本地运行最先进的 AI 模型，性能媲美专业服务器。"
+      }
+    ]
+  },
+  "product": {
+    "label": "认识 iClaw",
+    "heading": "你的私人 AI 电脑。",
+    "desc": "精心设计的设备，将 AI 带到你的桌面。无需依赖云端，无需复杂设置，纯粹的 AI 算力。",
+    "imageAlt": "iClaw AI 电脑 - 正面视图"
+  },
+  "features": {
+    "label": "核心功能",
+    "heading1": "你需要的一切。",
+    "heading2": "没有多余的。",
+    "items": [
+      {
+        "title": "开箱即用",
+        "desc": "通电即可使用 AI，零配置。"
+      },
+      {
+        "title": "本地数据安全",
+        "desc": "所有数据留在你的设备上。不上传、不云存储、不追踪。"
+      },
+      {
+        "title": "持续陪伴",
+        "desc": "始终在线的 AI，学习你的偏好，随时间与你一起成长。"
+      },
+      {
+        "title": "简洁界面",
+        "desc": "为所有人设计的直观 GUI —— 从学生到专业人士。"
+      }
+    ]
+  },
+  "aiPower": {
+    "label": "AI 能力",
+    "heading": "生产力的未来。",
+    "desc": "在 iClaw 上本地运行强大的 AI 智能体、工作流和自动化。",
+    "capabilities": [
+      {
+        "title": "AI 写作",
+        "desc": "用自然语言生成文章、营销文案、邮件和创意内容。"
+      },
+      {
+        "title": "AI 编程",
+        "desc": "跨多种编程语言编写、调试和重构代码。"
+      },
+      {
+        "title": "AI 自动化",
+        "desc": "构建工作流，用智能代理自动化重复性任务。"
+      },
+      {
+        "title": "AI 分析",
+        "desc": "分析数据、生成洞察、从任何数据集创建可视化。"
+      }
+    ],
+    "tags": ["AI 智能体", "智能工作流", "任务自动化", "插件系统", "API 接口"]
+  },
+  "useCases": {
+    "label": "使用场景",
+    "heading": "为你的工作方式而生。",
+    "desc": "无论你从事什么职业，iClaw 都能适应你的工作流，放大你的产出。",
+    "items": [
+      {
+        "role": "创业者",
+        "tasks": ["撰写商业计划", "自动化客户服务", "生成营销内容"]
+      },
+      {
+        "role": "设计师",
+        "tasks": ["生成创意简报", "自动化素材制作", "AI 头脑风暴"]
+      },
+      {
+        "role": "学生",
+        "tasks": ["研究辅助", "论文写作支持", "学习资料生成"]
+      },
+      {
+        "role": "营销人员",
+        "tasks": ["社交媒体自动化", "内容排期", "营销数据分析"]
+      },
+      {
+        "role": "开发者",
+        "tasks": ["代码生成", "API 测试自动化", "技术文档编写"]
+      },
+      {
+        "role": "内容创作者",
+        "tasks": ["视频脚本写作", "播客内容笔记", "邮件通讯生成"]
+      }
+    ]
+  },
+  "design": {
+    "label": "设计",
+    "heading": "精工细作。",
+    "desc": "桌面 AI 服务器，外观与性能同样出色。简约、静音、经久耐用。",
+    "imageAlt": "iClaw 工业设计 - 精密铝合金机身",
+    "specs": [
+      { "label": "操作系统", "value": "Linux" },
+      { "label": "处理器", "value": "RK / 全志 四核" },
+      { "label": "内存", "value": "4 GB" },
+      { "label": "存储", "value": "32 GB + SD 卡" },
+      { "label": "软件", "value": "OpenClaw" },
+      { "label": "网络", "value": "WiFi" },
+      { "label": "噪音", "value": "静音运行" },
+      { "label": "体积", "value": "桌面紧凑型" }
+    ]
+  },
+  "security": {
+    "label": "安全与隐私",
+    "heading": "你的数据，只属于你。",
+    "desc": "iClaw 完全在本地网络运行。你的对话、文件和 AI 模型永远不会离开你的设备。",
+    "items": [
+      {
+        "title": "本地处理",
+        "desc": "所有 AI 计算在设备上完成。无云端、无延迟、无数据泄露。"
+      },
+      {
+        "title": "加密存储",
+        "desc": "所有本地数据采用行业标准协议进行静态加密。"
+      },
+      {
+        "title": "零遥测",
+        "desc": "不追踪、不分析、不收集使用数据。绝对隐私。"
+      }
+    ]
+  },
+  "ecosystem": {
+    "label": "生态系统",
+    "heading1": "不仅仅是一台设备。",
+    "heading2": "更是一个平台。",
+    "desc": "iClaw 拥有不断壮大的智能体、技能、插件生态和活跃社区。",
+    "items": [
+      { "title": "AI 智能体", "desc": "自主执行复杂任务的智能代理。" },
+      { "title": "工作流", "desc": "可视化工作流构建器，支持多步骤 AI 自动化。" },
+      { "title": "插件系统", "desc": "通过社区构建的插件和集成扩展 iClaw。" },
+      { "title": "API 接口", "desc": "完整的 API，供开发者在 iClaw 之上构建应用。" },
+      { "title": "技能库", "desc": "预构建的 AI 技能，覆盖常见任务，即装即用。" },
+      { "title": "社区", "desc": "加入全球 iClaw 用户社区，分享智能体和技能。" }
+    ]
+  },
+  "comparison": {
+    "label": "对比",
+    "heading": "一目了然。",
+    "headers": { "cloudAI": "云端 AI", "selfHosted": "自建部署", "iclaw": "iClaw" },
+    "rows": [
+      { "feature": "隐私", "cloud": "数据在远程服务器", "local": "自建部署复杂", "iclaw": "100% 本地，零泄露" },
+      { "feature": "设置", "cloud": "账号 + API 密钥", "local": "数小时配置", "iclaw": "插电即用" },
+      { "feature": "成本", "cloud": "按月订阅", "local": "昂贵的硬件", "iclaw": "一次购买" },
+      { "feature": "性能", "cloud": "依赖网络延迟", "local": "表现参差不齐", "iclaw": "优化且稳定" },
+      { "feature": "离线使用", "cloud": "不支持", "local": "支持", "iclaw": "支持" },
+      { "feature": "更新", "cloud": "供应商控制", "local": "手动更新", "iclaw": "一键 OTA" }
+    ]
+  },
+  "pricing": {
+    "label": "价格",
+    "heading": "投资你的 AI 未来。",
+    "desc": "一次购买，无需订阅，无隐藏费用。真正属于你的 AI。",
+    "mostPopular": "最受欢迎",
+    "plans": [
+      {
+        "name": "iClaw Lite",
+        "price": "$299",
+        "desc": "适合个人使用，开启 AI 之旅。",
+        "features": ["即用型 AI 模型", "简洁 GUI 界面", "本地数据隐私", "社区支持", "基础 AI 智能体"],
+        "cta": "预购 Lite"
+      },
+      {
+        "name": "iClaw Pro",
+        "price": "$499",
+        "desc": "适合专业人士和小团队，更强大的算力。",
+        "features": ["包含 Lite 所有功能", "高级 AI 模型", "工作流自动化", "插件生态", "优先支持", "API 接口"],
+        "cta": "预购 Pro"
+      },
+      {
+        "name": "iClaw Enterprise",
+        "price": "联系我们",
+        "desc": "适合需要定制化部署和支持的组织。",
+        "features": ["包含 Pro 所有功能", "自定义模型集成", "团队管理", "专属支持", "SLA 保障", "上门安装"],
+        "cta": "联系销售"
+      }
+    ]
+  },
+  "cta": {
+    "heading1": "开始用 AI",
+    "heading2": "构建未来。",
+    "desc": "AI 属于每一个人。加入数千名已在使用 iClaw 驱动工作和创造力的用户。",
+    "preorder": "立即预购",
+    "community": "加入社区"
+  },
+  "footer": {
+    "tagline": "AI 属于每一个人。",
+    "copyright": "iClaw. 保留所有权利。",
+    "sections": {
+      "product": "产品",
+      "company": "公司",
+      "support": "支持",
+      "legal": "法律"
+    },
+    "links": {
+      "features": "功能",
+      "aiPower": "AI 能力",
+      "useCases": "使用场景",
+      "pricing": "价格",
+      "about": "关于我们",
+      "blog": "博客",
+      "careers": "加入我们",
+      "press": "新闻",
+      "documentation": "文档",
+      "community": "社区",
+      "contact": "联系我们",
+      "faq": "常见问题",
+      "privacy": "隐私政策",
+      "terms": "服务条款",
+      "cookies": "Cookie 政策"
+    }
+  }
+}

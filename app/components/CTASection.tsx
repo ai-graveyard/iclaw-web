@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import FadeIn from "./FadeIn";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function CTASection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative py-40 px-6 overflow-hidden">
       {/* Background glow */}
@@ -21,16 +24,15 @@ export default function CTASection() {
       <div className="relative max-w-4xl mx-auto text-center">
         <FadeIn>
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-8">
-            Start building
+            {t("cta.heading1") as string}
             <br />
-            <span className="gradient-text">with AI.</span>
+            <span className="gradient-text">{t("cta.heading2") as string}</span>
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.2}>
           <p className="text-xl sm:text-2xl text-[#86868b] max-w-2xl mx-auto mb-12">
-            AI belongs to everyone. Join thousands who are already using iClaw to
-            power their work and creativity.
+            {t("cta.desc") as string}
           </p>
         </FadeIn>
 
@@ -40,13 +42,13 @@ export default function CTASection() {
               href="#pricing"
               className="inline-flex items-center justify-center bg-white text-black px-10 py-4 rounded-full text-lg font-semibold hover:bg-white/90 transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]"
             >
-              Pre-order Now
+              {t("cta.preorder") as string}
             </a>
             <a
               href="#"
               className="inline-flex items-center justify-center border border-[#424245] text-white px-10 py-4 rounded-full text-lg font-medium hover:border-[#86868b] transition-all duration-300"
             >
-              Join Community
+              {t("cta.community") as string}
             </a>
           </div>
         </FadeIn>

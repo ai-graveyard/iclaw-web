@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "./i18n/LanguageContext";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -27,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} antialiased`}>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

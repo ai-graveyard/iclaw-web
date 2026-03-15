@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function HeroSection() {
+  const { t } = useLanguage();
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Background effects */}
@@ -40,7 +42,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-white mb-6">
-            iClaw
+            {t("hero.title") as string}
           </h1>
         </motion.div>
 
@@ -50,7 +52,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-2xl sm:text-3xl md:text-4xl font-semibold gradient-text mb-6"
         >
-          AI Belongs to Everyone
+          {t("hero.subtitle") as string}
         </motion.p>
 
         <motion.p
@@ -59,8 +61,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-lg sm:text-xl text-[#86868b] max-w-2xl mx-auto mb-10"
         >
-          Your personal AI computer. Powerful, private, and ready out of the
-          box.
+          {t("hero.desc") as string}
         </motion.p>
 
         <motion.div
@@ -73,13 +74,13 @@ export default function HeroSection() {
             href="#pricing"
             className="inline-flex items-center justify-center bg-[#2997ff] text-white px-8 py-3.5 rounded-full text-lg font-medium hover:bg-[#0077ed] transition-all duration-300 hover:shadow-[0_0_30px_rgba(41,151,255,0.3)]"
           >
-            Pre-order Now
+            {t("hero.preorder") as string}
           </a>
           <a
             href="#features"
             className="inline-flex items-center justify-center border border-[#424245] text-white px-8 py-3.5 rounded-full text-lg font-medium hover:border-[#86868b] transition-all duration-300"
           >
-            Learn More
+            {t("hero.learnMore") as string}
           </a>
         </motion.div>
       </div>
@@ -94,7 +95,7 @@ export default function HeroSection() {
         <div className="relative aspect-[16/10] overflow-hidden">
           <Image
             src="/iclaw-hero.png"
-            alt="iClaw - Your Personal AI Computer"
+            alt={t("hero.imageAlt") as string}
             fill
             className="object-contain object-center drop-shadow-[0_20px_60px_rgba(41,151,255,0.15)]"
             priority

@@ -2,18 +2,21 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "AI Power", href: "#ai-power" },
-  { label: "Use Cases", href: "#use-cases" },
-  { label: "Design", href: "#design" },
-  { label: "Pricing", href: "#pricing" },
-];
+import { useLanguage } from "../i18n/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { label: t("nav.features") as string, href: "#features" },
+    { label: t("nav.aiPower") as string, href: "#ai-power" },
+    { label: t("nav.useCases") as string, href: "#use-cases" },
+    { label: t("nav.design") as string, href: "#design" },
+    { label: t("nav.pricing") as string, href: "#pricing" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -49,11 +52,12 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <LanguageSwitcher />
             <a
               href="#pricing"
               className="text-sm bg-white text-black px-5 py-2 rounded-full font-medium hover:bg-white/90 transition-colors duration-300"
             >
-              Buy Now
+              {t("nav.buyNow") as string}
             </a>
           </div>
 
@@ -93,6 +97,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl pt-20 px-6 md:hidden"
           >
             <div className="flex flex-col gap-6">
+              <LanguageSwitcher />
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.href}
@@ -114,7 +119,7 @@ export default function Navbar() {
                 transition={{ delay: navLinks.length * 0.05, duration: 0.3 }}
                 className="inline-flex w-fit text-lg bg-white text-black px-8 py-3 rounded-full font-medium mt-4"
               >
-                Buy Now
+                {t("nav.buyNow") as string}
               </motion.a>
             </div>
           </motion.div>
