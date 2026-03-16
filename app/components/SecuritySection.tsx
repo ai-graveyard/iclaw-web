@@ -31,7 +31,7 @@ export default function SecuritySection() {
   return (
     <section className="relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--gray-900)] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--security-bg)] to-transparent" />
       </div>
 
       <div className="relative max-w-5xl mx-auto text-center">

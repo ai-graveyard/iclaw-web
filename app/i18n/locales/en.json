@@ -212,30 +212,19 @@
     "label": "Pricing",
     "heading": "Invest in your AI future.",
     "desc": "One-time purchase. No subscriptions. No hidden fees. AI that truly belongs to you.",
-    "mostPopular": "Most Popular",
-    "plans": [
-      {
-        "name": "iClaw Lite",
-        "price": "$299",
-        "desc": "Perfect for personal use and getting started with AI.",
-        "features": ["Ready-to-use AI models", "Simple GUI interface", "Local data privacy", "Community support", "Basic AI agents"],
-        "cta": "Pre-order Lite"
-      },
-      {
-        "name": "iClaw Pro",
-        "price": "$499",
-        "desc": "For professionals and small teams who need more power.",
-        "features": ["All Lite features", "Advanced AI models", "Workflow automation", "Plugin ecosystem", "Priority support", "API access"],
-        "cta": "Pre-order Pro"
-      },
-      {
-        "name": "iClaw Enterprise",
-        "price": "Contact Us",
-        "desc": "For organizations requiring custom deployment and support.",
-        "features": ["All Pro features", "Custom model integration", "Team management", "Dedicated support", "SLA guarantee", "On-site setup"],
-        "cta": "Contact Sales"
-      }
-    ]
+    "price": "$299",
+    "desc": "One-time purchase. No subscriptions. No hidden fees.",
+    "features": [
+      "Ready-to-use AI models",
+      "Simple GUI interface",
+      "Local data privacy",
+      "AI agents & workflows",
+      "Plugin ecosystem",
+      "API access",
+      "Community support",
+      "Free OTA updates"
+    ],
+    "cta": "Pre-order Now"
   },
   "cta": {
     "heading1": "Start building",

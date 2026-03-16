@@ -27,6 +27,7 @@
   --mobile-menu-bg: rgba(0, 0, 0, 0.95);
   --hero-gradient-from: rgba(41, 151, 255, 0.2);
   --hero-gradient-to: rgba(191, 90, 242, 0.2);
+  --security-bg: #0a0a0a;
 }
 
 .light {
@@ -52,6 +53,7 @@
   --mobile-menu-bg: rgba(255, 255, 255, 0.95);
   --hero-gradient-from: rgba(41, 151, 255, 0.1);
   --hero-gradient-to: rgba(191, 90, 242, 0.1);
+  --security-bg: #f0fdf0;
 }
 
 @theme inline {
