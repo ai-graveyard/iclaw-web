@@ -57,7 +57,7 @@ export default function Navbar() {
             <ThemeSwitcher />
             <a
               href="#pricing"
-              className="text-sm bg-[var(--foreground)] text-[var(--background)] px-5 py-2 rounded-full font-medium hover:opacity-90 transition-all duration-300"
+              className="text-sm bg-[var(--nav-btn-bg)] text-[var(--nav-btn-text)] px-5 py-2 rounded-full font-medium hover:opacity-90 transition-all duration-300"
             >
               {t("nav.buyNow") as string}
             </a>
@@ -122,7 +122,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.05, duration: 0.3 }}
-                className="inline-flex w-fit text-lg bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-full font-medium mt-4"
+                className="inline-flex w-fit text-lg bg-[var(--nav-btn-bg)] text-[var(--nav-btn-text)] px-8 py-3 rounded-full font-medium mt-4"
               >
                 {t("nav.buyNow") as string}
               </motion.a>

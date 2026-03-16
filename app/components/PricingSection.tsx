@@ -171,8 +171,8 @@ export default function PricingSection() {
               </p>
 
               <button
-                onClick={() => window.open('https://my.feishu.cn/base/ZuNEbOvUnaEBYtsqMRwc1X8Vn4f?from=from_copylink', '_blank')}
-                className="w-full py-2.5 rounded-full text-sm font-medium bg-[#2997ff] text-white hover:bg-[#0077ed] transition-all duration-300 cursor-pointer"
+                onClick={() => window.open('https://my.feishu.cn/share/base/form/shrcnc2v7UEJtqVV4UeMVod8L8b', '_blank')}
+                className="w-full py-2.5 rounded-full text-sm font-medium bg-[var(--accent-btn-bg)] text-[var(--accent-btn-text)] hover:bg-[var(--accent-btn-hover)] transition-all duration-300 cursor-pointer"
               >
                 {modal.register} →
               </button>

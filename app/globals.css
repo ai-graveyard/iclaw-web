@@ -30,6 +30,11 @@
   --security-bg: #0a0a0a;
   --modal-bg: rgba(255, 255, 255, 0.25);
   --modal-border: rgba(255, 255, 255, 0.18);
+  --accent-btn-text: #ffffff;
+  --accent-btn-bg: #2997ff;
+  --accent-btn-hover: #0077ed;
+  --nav-btn-bg: #2997ff;
+  --nav-btn-text: #ffffff;
 }
 
 .light {
@@ -58,6 +63,11 @@
   --security-bg: #f0fdf0;
   --modal-bg: rgba(0, 0, 0, 0.15);
   --modal-border: rgba(0, 0, 0, 0.1);
+  --accent-btn-text: #ffffff;
+  --accent-btn-bg: #0066cc;
+  --accent-btn-hover: #0055aa;
+  --nav-btn-bg: #0066cc;
+  --nav-btn-text: #ffffff;
 }
 
 @theme inline {
