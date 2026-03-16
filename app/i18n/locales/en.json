@@ -211,7 +211,6 @@
   "pricing": {
     "label": "Pricing",
     "heading": "Invest in your AI future.",
-    "desc": "One-time purchase. No subscriptions. No hidden fees. AI that truly belongs to you.",
     "price": "$299",
     "desc": "One-time purchase. No subscriptions. No hidden fees.",
     "features": [
@@ -224,7 +223,13 @@
       "Community support",
       "Free OTA updates"
     ],
-    "cta": "Pre-order Now"
+    "cta": "Pre-order Now",
+    "enterprise": {
+      "name": "Enterprise",
+      "desc": "Custom deployment and dedicated support for organizations.",
+      "features": ["Custom model integration", "Team management", "Dedicated support", "SLA guarantee"],
+      "cta": "Contact Sales"
+    }
   },
   "cta": {
     "heading1": "Start building",
