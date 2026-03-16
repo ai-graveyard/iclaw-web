@@ -28,6 +28,8 @@
   --hero-gradient-from: rgba(41, 151, 255, 0.2);
   --hero-gradient-to: rgba(191, 90, 242, 0.2);
   --security-bg: #0a0a0a;
+  --modal-bg: rgba(255, 255, 255, 0.25);
+  --modal-border: rgba(255, 255, 255, 0.18);
 }
 
 .light {
@@ -54,6 +56,8 @@
   --hero-gradient-from: rgba(41, 151, 255, 0.1);
   --hero-gradient-to: rgba(191, 90, 242, 0.1);
   --security-bg: #f0fdf0;
+  --modal-bg: rgba(0, 0, 0, 0.15);
+  --modal-border: rgba(0, 0, 0, 0.1);
 }
 
 @theme inline {
@@ -130,6 +134,16 @@ body {
 .glass-card:hover {
   background: var(--card-hover);
   border-color: var(--border);
+}
+
+/* Glass modal - Apple style */
+.glass-modal {
+  background: var(--modal-bg);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid var(--modal-border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 
+              0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
 /* Section divider */

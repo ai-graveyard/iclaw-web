@@ -134,7 +134,7 @@ export default function PricingSection() {
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", duration: 0.4 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative rounded-3xl p-8 max-w-sm w-full text-center bg-[var(--card-bg,#1d1d1f)] border border-[var(--gray-600)]"
+              className="relative rounded-3xl p-8 max-w-sm w-full text-center glass-modal"
             >
               {/* Close button */}
               <button
@@ -166,27 +166,16 @@ export default function PricingSection() {
                 {modal.amount}
               </p>
 
-              <p className="text-sm text-[var(--gray-400)] mb-4">
+              <p className="text-sm text-[var(--foreground)] opacity-70 mb-4">
                 {modal.note}
               </p>
 
-              <a
-                href="https://my.feishu.cn/base/ZuNEbOvUnaEBYtsqMRwc1X8Vn4f?from=from_copylink"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-sm text-[#2997ff] hover:underline mb-4"
+              <button
+                onClick={() => window.open('https://my.feishu.cn/base/ZuNEbOvUnaEBYtsqMRwc1X8Vn4f?from=from_copylink', '_blank')}
+                className="w-full py-2.5 rounded-full text-sm font-medium bg-[#2997ff] text-white hover:bg-[#0077ed] transition-all duration-300 cursor-pointer"
               >
                 {modal.register} →
-              </a>
-
-              <div>
-                <button
-                  onClick={() => setShowPayModal(false)}
-                  className="w-full py-2.5 rounded-full text-sm font-medium border border-[var(--gray-600)] text-[var(--foreground)] hover:border-[var(--gray-400)] transition-all duration-300 cursor-pointer"
-                >
-                  {modal.close}
-                </button>
-              </div>
+              </button>
             </motion.div>
           </motion.div>
         )}
@@ -210,7 +199,7 @@ export default function PricingSection() {
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", duration: 0.4 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative rounded-3xl p-8 max-w-sm w-full text-center bg-[var(--card-bg,#1d1d1f)] border border-[var(--gray-600)]"
+              className="relative rounded-3xl p-8 max-w-sm w-full text-center glass-modal"
             >
               <button
                 onClick={() => setShowEnterpriseModal(false)}
@@ -236,16 +225,9 @@ export default function PricingSection() {
                 />
               </div>
 
-              <p className="text-sm text-[var(--gray-400)] mb-6">
+              <p className="text-sm text-[var(--foreground)] opacity-70 mb-6">
                 {enterprise.modal.note}
               </p>
-
-              <button
-                onClick={() => setShowEnterpriseModal(false)}
-                className="w-full py-2.5 rounded-full text-sm font-medium border border-[var(--gray-600)] text-[var(--foreground)] hover:border-[var(--gray-400)] transition-all duration-300 cursor-pointer"
-              >
-                {enterprise.modal.close}
-              </button>
             </motion.div>
           </motion.div>
         )}
