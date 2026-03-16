@@ -211,7 +211,7 @@
   "pricing": {
     "label": "Pricing",
     "heading": "Invest in your AI future.",
-    "price": "$299",
+    "price": "$499",
     "desc": "One-time purchase. No subscriptions. No hidden fees.",
     "features": [
       "Ready-to-use AI models",
@@ -224,11 +224,23 @@
       "Free OTA updates"
     ],
     "cta": "Pre-order Now",
+    "modal": {
+      "title": "WeChat Pay",
+      "amount": "Pay ¥50 to complete your reservation",
+      "note": "Our price includes not just the hardware, but also an ongoing companion course.",
+      "register": "Click here to register your information",
+      "close": "Close"
+    },
     "enterprise": {
       "name": "Enterprise",
       "desc": "Custom deployment and dedicated support for organizations.",
       "features": ["Custom model integration", "Team management", "Dedicated support", "SLA guarantee"],
-      "cta": "Contact Sales"
+      "cta": "Contact Sales",
+      "modal": {
+        "title": "Add on WeChat",
+        "note": "Scan to add on WeChat, note \"Enterprise\"",
+        "close": "Close"
+      }
     }
   },
   "cta": {
