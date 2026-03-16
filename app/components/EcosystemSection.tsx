@@ -63,12 +63,12 @@ export default function EcosystemSection() {
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-6">
           <p className="text-[#64d2ff] text-lg font-medium mb-4">{t("ecosystem.label") as string}</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)] mb-6">
             {t("ecosystem.heading1") as string}
             <br />
-            <span className="text-[#86868b]">{t("ecosystem.heading2") as string}</span>
+            <span className="text-[var(--gray-400)]">{t("ecosystem.heading2") as string}</span>
           </h2>
-          <p className="text-xl text-[#86868b] max-w-2xl mx-auto mb-20">
+          <p className="text-xl text-[var(--gray-400)] max-w-2xl mx-auto mb-20">
             {t("ecosystem.desc") as string}
           </p>
         </FadeIn>
@@ -90,10 +90,10 @@ export default function EcosystemSection() {
                 >
                   {icons[i]}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-2">
                   {item.title}
                 </h3>
-                <p className="text-[#86868b] text-sm leading-relaxed">
+                <p className="text-[var(--gray-400)] text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>

@@ -19,7 +19,7 @@ export default function VisionSection() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--foreground)] mb-8 leading-tight">
             {t("vision.heading1") as string}
             <br />
             {t("vision.heading2") as string}
@@ -27,7 +27,7 @@ export default function VisionSection() {
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <p className="text-xl sm:text-2xl text-[#86868b] max-w-3xl mx-auto mb-16 leading-relaxed">
+          <p className="text-xl sm:text-2xl text-[var(--gray-400)] max-w-3xl mx-auto mb-16 leading-relaxed">
             {t("vision.desc") as string}
           </p>
         </FadeIn>
@@ -50,10 +50,10 @@ export default function VisionSection() {
                 <span className="text-sm text-[#2997ff] font-mono">
                   {item.number}
                 </span>
-                <h3 className="text-2xl font-semibold text-white mt-2 mb-3">
+                <h3 className="text-2xl font-semibold text-[var(--foreground)] mt-2 mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[#86868b] leading-relaxed">{item.desc}</p>
+                <p className="text-[var(--gray-400)] leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>

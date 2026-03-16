@@ -16,6 +16,42 @@
   --accent-hover: #0077ed;
   --purple: #bf5af2;
   --green: #30d158;
+  --border: rgba(255, 255, 255, 0.06);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-hover: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --divider: rgba(255, 255, 255, 0.1);
+  --scrollbar: rgba(255, 255, 255, 0.15);
+  --scrollbar-hover: rgba(255, 255, 255, 0.25);
+  --nav-bg: rgba(0, 0, 0, 0.8);
+  --mobile-menu-bg: rgba(0, 0, 0, 0.95);
+  --hero-gradient-from: rgba(41, 151, 255, 0.2);
+  --hero-gradient-to: rgba(191, 90, 242, 0.2);
+}
+
+.light {
+  --background: #ffffff;
+  --foreground: #1d1d1f;
+  --gray-100: #0a0a0a;
+  --gray-200: #1d1d1f;
+  --gray-300: #424245;
+  --gray-400: #6e6e73;
+  --gray-500: #86868b;
+  --gray-600: #a1a1a6;
+  --gray-700: #d2d2d7;
+  --gray-800: #e8e8ed;
+  --gray-900: #f5f5f7;
+  --border: rgba(0, 0, 0, 0.08);
+  --card-bg: rgba(0, 0, 0, 0.03);
+  --card-hover: rgba(0, 0, 0, 0.06);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --divider: rgba(0, 0, 0, 0.1);
+  --scrollbar: rgba(0, 0, 0, 0.15);
+  --scrollbar-hover: rgba(0, 0, 0, 0.25);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --mobile-menu-bg: rgba(255, 255, 255, 0.95);
+  --hero-gradient-from: rgba(41, 151, 255, 0.1);
+  --hero-gradient-to: rgba(191, 90, 242, 0.1);
 }
 
 @theme inline {
@@ -40,6 +76,7 @@ body {
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Apple-style gradient text */
@@ -82,20 +119,21 @@ body {
 
 /* Glass card */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card-bg);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: var(--card-hover);
+  border-color: var(--border);
 }
 
 /* Section divider */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, var(--divider), transparent);
 }
 
 /* Scrollbar */
@@ -108,10 +146,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--scrollbar);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--scrollbar-hover);
 }

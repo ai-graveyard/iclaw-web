@@ -10,7 +10,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24">
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[var(--background)] to-[var(--gray-900)]" />
         <motion.div
           animate={{
             opacity: [0.3, 0.6, 0.3],
@@ -41,7 +41,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-white mb-6">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-[var(--foreground)] mb-6">
             {t("hero.title") as string}
           </h1>
         </motion.div>
@@ -59,7 +59,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-lg sm:text-xl text-[#86868b] max-w-2xl mx-auto mb-10"
+          className="text-lg sm:text-xl text-[var(--gray-400)] max-w-2xl mx-auto mb-10"
         >
           {t("hero.desc") as string}
         </motion.p>
@@ -78,7 +78,7 @@ export default function HeroSection() {
           </a>
           <a
             href="#features"
-            className="inline-flex items-center justify-center border border-[#424245] text-white px-8 py-3.5 rounded-full text-lg font-medium hover:border-[#86868b] transition-all duration-300"
+            className="inline-flex items-center justify-center border border-[var(--gray-600)] text-[var(--foreground)] px-8 py-3.5 rounded-full text-lg font-medium hover:border-[var(--gray-400)] transition-all duration-300"
           >
             {t("hero.learnMore") as string}
           </a>
@@ -113,9 +113,9 @@ export default function HeroSection() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 rounded-full border-2 border-[#424245] flex items-start justify-center pt-2"
+          className="w-6 h-10 rounded-full border-2 border-[var(--gray-600)] flex items-start justify-center pt-2"
         >
-          <div className="w-1 h-2 rounded-full bg-[#86868b]" />
+          <div className="w-1 h-2 rounded-full bg-[var(--gray-400)]" />
         </motion.div>
       </motion.div>
     </section>

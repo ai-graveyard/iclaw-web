@@ -41,10 +41,10 @@ export default function FeaturesSection() {
           <p className="text-[#2997ff] text-lg font-medium mb-4">
             {t("features.label") as string}
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)]">
             {t("features.heading1") as string}
             <br />
-            <span className="text-[#86868b]">{t("features.heading2") as string}</span>
+            <span className="text-[var(--gray-400)]">{t("features.heading2") as string}</span>
           </h2>
         </FadeIn>
 
@@ -58,10 +58,10 @@ export default function FeaturesSection() {
                 >
                   {icons[i]}
                 </div>
-                <h3 className="text-2xl font-semibold text-white mb-3">
+                <h3 className="text-2xl font-semibold text-[var(--foreground)] mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-[#86868b] text-lg leading-relaxed">
+                <p className="text-[var(--gray-400)] text-lg leading-relaxed">
                   {feature.desc}
                 </p>
               </div>

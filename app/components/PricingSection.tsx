@@ -17,10 +17,10 @@ export default function PricingSection() {
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-20">
           <p className="text-[#2997ff] text-lg font-medium mb-4">{t("pricing.label") as string}</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)] mb-6">
             {t("pricing.heading") as string}
           </h2>
-          <p className="text-xl text-[#86868b] max-w-2xl mx-auto">
+          <p className="text-xl text-[var(--gray-400)] max-w-2xl mx-auto">
             {t("pricing.desc") as string}
           </p>
         </FadeIn>
@@ -45,21 +45,21 @@ export default function PricingSection() {
                     </span>
                   )}
 
-                  <h3 className="text-xl font-semibold text-white mb-2">
+                  <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2">
                     {plan.name}
                   </h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-white">
+                    <span className="text-4xl font-bold text-[var(--foreground)]">
                       {plan.price}
                     </span>
                   </div>
-                  <p className="text-[#86868b] text-sm mb-6">{plan.desc}</p>
+                  <p className="text-[var(--gray-400)] text-sm mb-6">{plan.desc}</p>
 
                   <ul className="space-y-3 mb-8 flex-1">
                     {plan.features.map((feature, fi) => (
                       <li
                         key={fi}
-                        className="text-sm text-[#a1a1a6] flex items-center gap-3"
+                        className="text-sm text-[var(--gray-300)] flex items-center gap-3"
                       >
                         <svg
                           width="16"
@@ -83,7 +83,7 @@ export default function PricingSection() {
                     className={`inline-flex items-center justify-center w-full py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                       isFeatured
                         ? "bg-[#2997ff] text-white hover:bg-[#0077ed] hover:shadow-[0_0_30px_rgba(41,151,255,0.3)]"
-                        : "border border-[#424245] text-white hover:border-[#86868b]"
+                        : "border border-[var(--gray-600)] text-[var(--foreground)] hover:border-[var(--gray-400)]"
                     }`}
                   >
                     {plan.cta}

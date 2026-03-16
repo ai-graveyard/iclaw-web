@@ -15,11 +15,11 @@ export default function DesignSection() {
 
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-20">
-          <p className="text-[#a1a1a6] text-lg font-medium mb-4">{t("design.label") as string}</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <p className="text-[var(--gray-300)] text-lg font-medium mb-4">{t("design.label") as string}</p>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)] mb-6">
             {t("design.heading") as string}
           </h2>
-          <p className="text-xl text-[#86868b] max-w-2xl mx-auto">
+          <p className="text-xl text-[var(--gray-400)] max-w-2xl mx-auto">
             {t("design.desc") as string}
           </p>
         </FadeIn>
@@ -48,8 +48,8 @@ export default function DesignSection() {
           {specItems.map((spec, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="text-center py-4">
-                <p className="text-[#86868b] text-sm mb-2">{spec.label}</p>
-                <p className="text-white text-lg font-semibold">{spec.value}</p>
+                <p className="text-[var(--gray-400)] text-sm mb-2">{spec.label}</p>
+                <p className="text-[var(--foreground)] text-lg font-semibold">{spec.value}</p>
               </div>
             </FadeIn>
           ))}

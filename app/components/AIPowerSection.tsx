@@ -50,10 +50,10 @@ export default function AIPowerSection() {
       <div className="relative max-w-6xl mx-auto">
         <FadeIn className="text-center mb-20">
           <p className="text-[#bf5af2] text-lg font-medium mb-4">{t("aiPower.label") as string}</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)] mb-6">
             {t("aiPower.heading") as string}
           </h2>
-          <p className="text-xl text-[#86868b] max-w-2xl mx-auto">
+          <p className="text-xl text-[var(--gray-400)] max-w-2xl mx-auto">
             {t("aiPower.desc") as string}
           </p>
         </FadeIn>
@@ -75,10 +75,10 @@ export default function AIPowerSection() {
                 >
                   {icons[i]}
                 </div>
-                <h3 className="text-2xl font-semibold text-white mb-3">
+                <h3 className="text-2xl font-semibold text-[var(--foreground)] mb-3">
                   {cap.title}
                 </h3>
-                <p className="text-[#a1a1a6] text-lg leading-relaxed">
+                <p className="text-[var(--gray-300)] text-lg leading-relaxed">
                   {cap.desc}
                 </p>
               </motion.div>
@@ -93,7 +93,7 @@ export default function AIPowerSection() {
               (tag) => (
                 <span
                   key={tag}
-                  className="px-5 py-2.5 rounded-full text-sm font-medium text-[#a1a1a6] border border-[#424245] hover:border-[#86868b] hover:text-white transition-all duration-300 cursor-default"
+                  className="px-5 py-2.5 rounded-full text-sm font-medium text-[var(--gray-300)] border border-[var(--gray-600)] hover:border-[var(--gray-400)] hover:text-[var(--foreground)] transition-all duration-300 cursor-default"
                 >
                   {tag}
                 </span>

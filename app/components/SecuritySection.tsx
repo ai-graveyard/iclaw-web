@@ -31,7 +31,7 @@ export default function SecuritySection() {
   return (
     <section className="relative py-32 px-6 overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--gray-900)] to-transparent" />
       </div>
 
       <div className="relative max-w-5xl mx-auto text-center">
@@ -57,13 +57,13 @@ export default function SecuritySection() {
           <p className="text-[#30d158] text-lg font-medium mb-4">
             {t("security.label") as string}
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)] mb-6">
             {t("security.heading") as string}
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <p className="text-xl text-[#86868b] max-w-2xl mx-auto mb-16">
+          <p className="text-xl text-[var(--gray-400)] max-w-2xl mx-auto mb-16">
             {t("security.desc") as string}
           </p>
         </FadeIn>
@@ -79,10 +79,10 @@ export default function SecuritySection() {
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#30d158]/10 mb-5">
                   {icons[i]}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3">
+                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[#86868b] text-sm leading-relaxed">
+                <p className="text-[var(--gray-400)] text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </motion.div>

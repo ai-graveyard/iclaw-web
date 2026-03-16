@@ -38,11 +38,11 @@ export default function ProblemSection() {
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-20">
           <p className="text-[#2997ff] text-lg font-medium mb-4">{t("problem.label") as string}</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)] mb-6">
             {t("problem.heading1") as string}<br />
-            <span className="text-[#86868b]">{t("problem.heading2") as string}</span>
+            <span className="text-[var(--gray-400)]">{t("problem.heading2") as string}</span>
           </h2>
-          <p className="text-xl text-[#86868b] max-w-2xl mx-auto">
+          <p className="text-xl text-[var(--gray-400)] max-w-2xl mx-auto">
             {t("problem.desc") as string}
           </p>
         </FadeIn>
@@ -52,10 +52,10 @@ export default function ProblemSection() {
             <FadeIn key={item.title} delay={i * 0.1}>
               <div className="glass-card rounded-2xl p-8 h-full transition-all duration-500">
                 <div className="text-[#2997ff] mb-5">{icons[i]}</div>
-                <h3 className="text-lg font-semibold text-white mb-3">
+                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[#86868b] text-sm leading-relaxed">
+                <p className="text-[var(--gray-400)] text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>

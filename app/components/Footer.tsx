@@ -44,15 +44,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-white/[0.06] py-16 px-6">
+    <footer className="border-t border-[var(--border)] py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <a href="#" className="text-xl font-semibold text-white">
+            <a href="#" className="text-xl font-semibold text-[var(--foreground)]">
               iClaw
             </a>
-            <p className="text-sm text-[#86868b] mt-3 leading-relaxed">
+            <p className="text-sm text-[var(--gray-400)] mt-3 leading-relaxed">
               {t("footer.tagline") as string}
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function Footer() {
           {/* Links */}
           {footerLinks.map((group) => (
             <div key={group.title}>
-              <h4 className="text-xs font-semibold text-[#a1a1a6] uppercase tracking-wider mb-4">
+              <h4 className="text-xs font-semibold text-[var(--gray-300)] uppercase tracking-wider mb-4">
                 {group.title}
               </h4>
               <ul className="space-y-3">
@@ -68,7 +68,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-[#86868b] hover:text-white transition-colors duration-300"
+                      className="text-sm text-[var(--gray-400)] hover:text-[var(--foreground)] transition-colors duration-300"
                     >
                       {link.label}
                     </a>
@@ -80,8 +80,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/[0.06] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#424245]">
+        <div className="border-t border-[var(--border)] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-[var(--gray-600)]">
             &copy; {new Date().getFullYear()} {t("footer.copyright") as string}
           </p>
           <div className="flex items-center gap-6">
@@ -116,7 +116,7 @@ export default function Footer() {
                 key={social.label}
                 href="#"
                 aria-label={social.label}
-                className="text-[#424245] hover:text-[#86868b] transition-colors duration-300"
+                className="text-[var(--gray-600)] hover:text-[var(--gray-400)] transition-colors duration-300"
               >
                 {social.icon}
               </a>

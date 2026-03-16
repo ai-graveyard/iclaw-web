@@ -15,10 +15,10 @@ export default function UseCasesSection() {
       <div className="max-w-6xl mx-auto">
         <FadeIn className="text-center mb-20">
           <p className="text-[#ff9f0a] text-lg font-medium mb-4">{t("useCases.label") as string}</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)] mb-6">
             {t("useCases.heading") as string}
           </h2>
-          <p className="text-xl text-[#86868b] max-w-2xl mx-auto">
+          <p className="text-xl text-[var(--gray-400)] max-w-2xl mx-auto">
             {t("useCases.desc") as string}
           </p>
         </FadeIn>
@@ -31,16 +31,16 @@ export default function UseCasesSection() {
                   className="w-3 h-3 rounded-full mb-5"
                   style={{ backgroundColor: colors[i] }}
                 />
-                <h3 className="text-xl font-semibold text-white mb-4">
+                <h3 className="text-xl font-semibold text-[var(--foreground)] mb-4">
                   {uc.role}
                 </h3>
                 <ul className="space-y-2.5">
                   {uc.tasks.map((task, j) => (
                     <li
                       key={j}
-                      className="text-[#86868b] text-sm flex items-start gap-2"
+                      className="text-[var(--gray-400)] text-sm flex items-start gap-2"
                     >
-                      <span className="text-[#424245] mt-1">—</span>
+                      <span className="text-[var(--gray-600)] mt-1">—</span>
                       {task}
                     </li>
                   ))}

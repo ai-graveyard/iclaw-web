@@ -15,10 +15,10 @@ export default function ProductSection() {
           <p className="text-[#30d158] text-lg font-medium mb-4">
             {t("product.label") as string}
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)] mb-6">
             {t("product.heading") as string}
           </h2>
-          <p className="text-xl text-[#86868b] max-w-2xl mx-auto">
+          <p className="text-xl text-[var(--gray-400)] max-w-2xl mx-auto">
             {t("product.desc") as string}
           </p>
         </FadeIn>
