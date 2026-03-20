@@ -36,9 +36,9 @@ export default function PricingSection() {
     close: string;
   };
 
-  const iclaw = t("pricing.iclaw") as ProductPricing;
-  const uclaw = t("pricing.uclaw") as ProductPricing;
-  const enterprise = t("pricing.enterprise") as {
+  const iclaw = t("pricing.iclaw") as unknown as ProductPricing;
+  const uclaw = t("pricing.uclaw") as unknown as ProductPricing;
+  const enterprise = t("pricing.enterprise") as unknown as {
     name: string;
     desc: string;
     features: string[];
