@@ -63,10 +63,21 @@
     ]
   },
   "product": {
-    "label": "Meet iClaw",
-    "heading": "Your personal AI computer.",
-    "desc": "A beautifully designed device that brings AI to your desktop. No cloud dependency. No complicated setup. Just pure AI power.",
-    "imageAlt": "iClaw AI Computer - front view"
+    "label": "Product Lineup",
+    "heading": "Two forms, one mission.",
+    "desc": "Whether you need powerful desktop AI or portable AI on the go, we've got you covered.",
+    "iclaw": {
+      "name": "iClaw",
+      "tagline": "Desktop AI Computer",
+      "desc": "A plug-and-play personal AI computer with powerful performance, silent operation, built for your desk.",
+      "imageAlt": "iClaw AI Computer - front view"
+    },
+    "uclaw": {
+      "name": "uClaw",
+      "tagline": "USB AI Assistant",
+      "desc": "Plug into any computer for instant AI power. Your personal AI, portable and always ready.",
+      "imageAlt": "uClaw AI USB Drive - product view"
+    }
   },
   "features": {
     "label": "Core Features",
@@ -211,22 +222,48 @@
   "pricing": {
     "label": "Pricing",
     "heading": "Invest in your AI future.",
-    "price": "$499",
-    "desc": "One-time purchase. No subscriptions. No hidden fees.",
-    "features": [
-      "Ready-to-use AI models",
-      "Simple GUI interface",
-      "Local data privacy",
-      "AI agents & workflows",
-      "Plugin ecosystem",
-      "API access",
-      "Community support",
-      "Free OTA updates"
-    ],
-    "cta": "Pre-order Now",
+    "iclaw": {
+      "name": "iClaw",
+      "tagline": "Desktop AI Computer",
+      "price": "$718",
+      "desc": "One-time purchase. No subscriptions. No hidden fees.",
+      "features": [
+        "Ready-to-use AI models",
+        "Simple GUI interface",
+        "Local data privacy",
+        "AI agents & workflows",
+        "Plugin ecosystem",
+        "API access",
+        "Community support",
+        "Free OTA updates"
+      ],
+      "cta": "Pre-order Now"
+    },
+    "uclaw": {
+      "name": "uClaw",
+      "tagline": "USB AI Assistant",
+      "price": "$199",
+      "desc": "One-time purchase. Plug and play. Take it anywhere.",
+      "features": [
+        "Ready-to-use AI models",
+        "Simple GUI interface",
+        "Local data privacy",
+        "Portable & lightweight",
+        "Community support",
+        "Free OTA updates"
+      ],
+      "cta": "Buy Now",
+      "modal": {
+        "title": "WeChat Pay",
+        "amount": "Pay ¥199 to purchase uClaw",
+        "note": "Our price includes not just the hardware, but also an ongoing companion course.",
+        "register": "Click here to join the learning community",
+        "close": "Close"
+      }
+    },
     "modal": {
       "title": "WeChat Pay",
-      "amount": "Pay ¥50 to complete your reservation",
+      "amount": "Pay ¥50 to complete your iClaw reservation",
       "note": "Our price includes not just the hardware, but also an ongoing companion course.",
       "register": "Click here to join the learning community",
       "close": "Close"
