@@ -39,7 +39,7 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 h-14">
           <a href="/" className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
-            iClaw
+            <span className="text-[#2997ff]">i</span>&amp;<span className="text-[#30d158]">u</span> Claw
           </a>
 
           {/* Desktop nav */}

@@ -3,6 +3,8 @@ import HeroSection from "./components/HeroSection";
 import ProblemSection from "./components/ProblemSection";
 import VisionSection from "./components/VisionSection";
 import ProductSection from "./components/ProductSection";
+import IClawDetailSection from "./components/IClawDetailSection";
+import UClawDetailSection from "./components/UClawDetailSection";
 import FeaturesSection from "./components/FeaturesSection";
 import AIPowerSection from "./components/AIPowerSection";
 import UseCasesSection from "./components/UseCasesSection";
@@ -22,6 +24,8 @@ export default function Home() {
       <ProblemSection />
       <VisionSection />
       <ProductSection />
+      <IClawDetailSection />
+      <UClawDetailSection />
       <FeaturesSection />
       <AIPowerSection />
       <UseCasesSection />

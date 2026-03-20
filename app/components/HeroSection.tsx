@@ -42,7 +42,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-[var(--foreground)] mb-6">
-            {t("hero.title") as string}
+            <span className="text-[#2997ff]">i</span>{t("hero.title") as string} & <span className="text-[#30d158]">u</span>{t("hero.title") as string}
           </h1>
         </motion.div>
 
@@ -85,21 +85,51 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Product visual */}
+      {/* Two product visuals side by side */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
-        className="relative z-10 mt-16 mb-8 w-full max-w-3xl mx-auto px-6"
+        className="relative z-10 mt-16 mb-8 w-full max-w-5xl mx-auto px-6"
       >
-        <div className="relative aspect-[16/10] overflow-hidden">
-          <Image
-            src="/iclaw-hero.png"
-            alt={t("hero.imageAlt") as string}
-            fill
-            className="object-contain object-center drop-shadow-[0_20px_60px_rgba(41,151,255,0.15)]"
-            priority
-          />
+        <div className="grid grid-cols-2 gap-6 md:gap-12 items-end">
+          {/* iClaw */}
+          <a href="#iclaw-detail" className="group">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/iclaw-hero.png"
+                alt={t("hero.iclawAlt") as string}
+                fill
+                className="object-contain object-center drop-shadow-[0_20px_60px_rgba(41,151,255,0.15)] group-hover:scale-105 transition-transform duration-500"
+                priority
+              />
+            </div>
+            <p className="text-center mt-4 text-lg font-semibold text-[var(--foreground)]">
+              <span className="text-[#2997ff]">i</span>Claw
+            </p>
+            <p className="text-center text-sm text-[var(--gray-400)]">
+              {t("product.iclaw.tagline") as string}
+            </p>
+          </a>
+
+          {/* uClaw */}
+          <a href="#uclaw-detail" className="group">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src="/uclaw-product.png"
+                alt={t("hero.uclawAlt") as string}
+                fill
+                className="object-contain object-center drop-shadow-[0_20px_60px_rgba(48,209,88,0.15)] group-hover:scale-105 transition-transform duration-500"
+                priority
+              />
+            </div>
+            <p className="text-center mt-4 text-lg font-semibold text-[var(--foreground)]">
+              <span className="text-[#30d158]">u</span>Claw
+            </p>
+            <p className="text-center text-sm text-[var(--gray-400)]">
+              {t("product.uclaw.tagline") as string}
+            </p>
+          </a>
         </div>
       </motion.div>
 

@@ -8,12 +8,13 @@
     "buyNow": "Buy Now"
   },
   "hero": {
-    "title": "iClaw",
+    "title": "Claw",
     "subtitle": "AI Belongs to Everyone",
-    "desc": "Your personal AI computer. Powerful, private, and ready out of the box.",
+    "desc": "From desktop powerhouse to pocket-sized AI. Powerful, private, and ready out of the box.",
     "preorder": "Pre-order Now",
     "learnMore": "Learn More",
-    "imageAlt": "iClaw - Your Personal AI Computer"
+    "iclawAlt": "iClaw - Desktop AI Computer",
+    "uclawAlt": "uClaw - USB AI Assistant"
   },
   "problem": {
     "label": "The Problem",
@@ -161,18 +162,37 @@
   "design": {
     "label": "Design",
     "heading": "Crafted with precision.",
-    "desc": "A desktop AI server that looks as good as it performs. Minimal, silent, and built to last.",
-    "imageAlt": "iClaw industrial design - premium aluminum body",
-    "specs": [
-      { "label": "OS", "value": "Linux" },
-      { "label": "Processor", "value": "RK / Allwinner Quad-core" },
-      { "label": "Memory", "value": "4 GB" },
-      { "label": "Storage", "value": "32 GB + SD" },
-      { "label": "Software", "value": "OpenClaw" },
-      { "label": "Connectivity", "value": "WiFi" },
-      { "label": "Noise", "value": "Silent operation" },
-      { "label": "Footprint", "value": "Compact desktop" }
-    ]
+    "desc": "Two products, same philosophy — minimal, powerful, and built to last.",
+    "iclaw": {
+      "name": "iClaw",
+      "tagline": "Desktop AI Computer",
+      "imageAlt": "iClaw industrial design - premium aluminum body",
+      "specs": [
+        { "label": "OS", "value": "Linux" },
+        { "label": "Processor", "value": "RK / Allwinner Quad-core" },
+        { "label": "Memory", "value": "4 GB" },
+        { "label": "Storage", "value": "32 GB + SD" },
+        { "label": "Software", "value": "OpenClaw" },
+        { "label": "Connectivity", "value": "WiFi" },
+        { "label": "Noise", "value": "Silent operation" },
+        { "label": "Footprint", "value": "Compact desktop" }
+      ]
+    },
+    "uclaw": {
+      "name": "uClaw",
+      "tagline": "USB AI Assistant",
+      "imageAlt": "uClaw USB AI drive - dual interface design",
+      "specs": [
+        { "label": "Interface", "value": "USB-A + USB-C" },
+        { "label": "Processor", "value": "AI-optimized SoC" },
+        { "label": "Storage", "value": "Built-in flash" },
+        { "label": "Software", "value": "OpenClaw" },
+        { "label": "Compatibility", "value": "Win / Mac / Linux" },
+        { "label": "Weight", "value": "< 30g" },
+        { "label": "Power", "value": "USB powered" },
+        { "label": "Size", "value": "Standard USB drive" }
+      ]
+    }
   },
   "security": {
     "label": "Security & Privacy",
@@ -210,14 +230,15 @@
   "comparison": {
     "label": "Comparison",
     "heading": "See the difference.",
-    "headers": { "cloudAI": "Cloud AI", "selfHosted": "Self-hosted", "iclaw": "iClaw" },
+    "headers": { "cloudAI": "Cloud AI", "selfHosted": "Self-hosted", "iclaw": "iClaw", "uclaw": "uClaw" },
     "rows": [
-      { "feature": "Privacy", "cloud": "Data on remote servers", "local": "Complex self-hosting", "iclaw": "100% local, zero leaks" },
-      { "feature": "Setup", "cloud": "Account + API keys", "local": "Hours of configuration", "iclaw": "Plug in and go" },
-      { "feature": "Cost", "cloud": "Monthly subscriptions", "local": "Expensive hardware", "iclaw": "One-time purchase" },
-      { "feature": "Performance", "cloud": "Latency dependent", "local": "Varies widely", "iclaw": "Optimized & consistent" },
-      { "feature": "Offline Use", "cloud": "No", "local": "Yes", "iclaw": "Yes" },
-      { "feature": "Updates", "cloud": "Provider controlled", "local": "Manual", "iclaw": "One-click OTA" }
+      { "feature": "Privacy", "cloud": "Data on remote servers", "local": "Complex self-hosting", "iclaw": "100% local, zero leaks", "uclaw": "100% local, zero leaks" },
+      { "feature": "Setup", "cloud": "Account + API keys", "local": "Hours of configuration", "iclaw": "Plug in and go", "uclaw": "Plug in and go" },
+      { "feature": "Cost", "cloud": "Monthly subscriptions", "local": "Expensive hardware", "iclaw": "$718 one-time", "uclaw": "$199 one-time" },
+      { "feature": "Performance", "cloud": "Latency dependent", "local": "Varies widely", "iclaw": "Optimized & consistent", "uclaw": "Lightweight & fast" },
+      { "feature": "Portability", "cloud": "Any device", "local": "Fixed setup", "iclaw": "Desktop", "uclaw": "Pocket-sized" },
+      { "feature": "Offline Use", "cloud": "No", "local": "Yes", "iclaw": "Yes", "uclaw": "Yes" },
+      { "feature": "Updates", "cloud": "Provider controlled", "local": "Manual", "iclaw": "One-click OTA", "uclaw": "One-click OTA" }
     ]
   },
   "pricing": {
@@ -378,7 +399,11 @@
     "heading2": "with AI.",
     "desc": "AI belongs to everyone. Join thousands who are already using iClaw to power their work and creativity.",
     "preorder": "Pre-order Now",
-    "community": "Join Community"
+    "community": "Join Community",
+    "modal": {
+      "title": "Add on WeChat",
+      "note": "Scan to add on WeChat, note \"Join Community\""
+    }
   },
   "footer": {
     "tagline": "AI belongs to everyone.",

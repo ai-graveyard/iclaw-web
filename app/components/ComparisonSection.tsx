@@ -6,7 +6,13 @@ import { useLanguage } from "../i18n/LanguageContext";
 export default function ComparisonSection() {
   const { t } = useLanguage();
 
-  const rows = t("comparison.rows") as { feature: string; cloud: string; local: string; iclaw: string }[];
+  const rows = t("comparison.rows") as {
+    feature: string;
+    cloud: string;
+    local: string;
+    iclaw: string;
+    uclaw: string;
+  }[];
 
   return (
     <section className="relative py-32 px-6">
@@ -21,19 +27,24 @@ export default function ComparisonSection() {
 
         <FadeIn delay={0.2}>
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[600px]">
+            <table className="w-full min-w-[700px]">
               <thead>
                 <tr className="border-b border-[var(--border)]">
-                  <th className="text-left text-[var(--gray-400)] text-sm font-medium py-4 pr-6 w-1/4" />
-                  <th className="text-center text-[var(--gray-400)] text-sm font-medium py-4 px-4 w-1/4">
+                  <th className="text-left text-[var(--gray-400)] text-sm font-medium py-4 pr-4 w-1/5" />
+                  <th className="text-center text-[var(--gray-400)] text-sm font-medium py-4 px-3 w-1/5">
                     {t("comparison.headers.cloudAI") as string}
                   </th>
-                  <th className="text-center text-[var(--gray-400)] text-sm font-medium py-4 px-4 w-1/4">
+                  <th className="text-center text-[var(--gray-400)] text-sm font-medium py-4 px-3 w-1/5">
                     {t("comparison.headers.selfHosted") as string}
                   </th>
-                  <th className="text-center text-sm font-medium py-4 pl-4 w-1/4">
-                    <span className="gradient-text-blue font-semibold">
+                  <th className="text-center text-sm font-medium py-4 px-3 w-1/5">
+                    <span className="text-[#2997ff] font-semibold">
                       {t("comparison.headers.iclaw") as string}
+                    </span>
+                  </th>
+                  <th className="text-center text-sm font-medium py-4 pl-3 w-1/5">
+                    <span className="text-[#30d158] font-semibold">
+                      {t("comparison.headers.uclaw") as string}
                     </span>
                   </th>
                 </tr>
@@ -44,17 +55,20 @@ export default function ComparisonSection() {
                     key={i}
                     className="border-b border-[var(--border)] hover:bg-[var(--card-bg)] transition-colors"
                   >
-                    <td className="text-[var(--foreground)] font-medium py-5 pr-6 text-sm">
+                    <td className="text-[var(--foreground)] font-medium py-5 pr-4 text-sm">
                       {row.feature}
                     </td>
-                    <td className="text-[var(--gray-400)] text-center py-5 px-4 text-sm">
+                    <td className="text-[var(--gray-400)] text-center py-5 px-3 text-sm">
                       {row.cloud}
                     </td>
-                    <td className="text-[var(--gray-400)] text-center py-5 px-4 text-sm">
+                    <td className="text-[var(--gray-400)] text-center py-5 px-3 text-sm">
                       {row.local}
                     </td>
-                    <td className="text-[#2997ff] text-center py-5 pl-4 text-sm font-medium">
+                    <td className="text-[#2997ff] text-center py-5 px-3 text-sm font-medium">
                       {row.iclaw}
+                    </td>
+                    <td className="text-[#30d158] text-center py-5 pl-3 text-sm font-medium">
+                      {row.uclaw}
                     </td>
                   </tr>
                 ))}

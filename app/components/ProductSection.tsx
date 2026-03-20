@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import FadeIn from "./FadeIn";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -28,7 +27,7 @@ export default function ProductSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* iClaw - Desktop AI (first) */}
           <FadeIn delay={0.2}>
-            <Link href="/iclaw" className="block h-full">
+            <a href="#iclaw-detail" className="block h-full">
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}
@@ -60,12 +59,12 @@ export default function ProductSection() {
                   {t("product.learnMore") as string} &rarr;
                 </span>
               </motion.div>
-            </Link>
+            </a>
           </FadeIn>
 
           {/* uClaw - USB AI (second) */}
           <FadeIn delay={0.4}>
-            <Link href="/uclaw" className="block h-full">
+            <a href="#uclaw-detail" className="block h-full">
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}
@@ -97,7 +96,7 @@ export default function ProductSection() {
                   {t("product.learnMore") as string} &rarr;
                 </span>
               </motion.div>
-            </Link>
+            </a>
           </FadeIn>
         </div>
       </div>

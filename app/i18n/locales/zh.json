@@ -8,12 +8,13 @@
     "buyNow": "立即购买"
   },
   "hero": {
-    "title": "iClaw",
+    "title": "Claw",
     "subtitle": "AI 属于每一个人",
-    "desc": "你的私人 AI 电脑。强大、隐私、开箱即用。",
+    "desc": "从桌面算力中心到口袋 AI 助手。强大、隐私、开箱即用。",
     "preorder": "立即预购",
     "learnMore": "了解更多",
-    "imageAlt": "iClaw - 你的私人 AI 电脑"
+    "iclawAlt": "iClaw - 桌面 AI 一体机",
+    "uclawAlt": "uClaw - U 盘版 AI 助手"
   },
   "problem": {
     "label": "现状问题",
@@ -161,18 +162,37 @@
   "design": {
     "label": "设计",
     "heading": "精工细作。",
-    "desc": "桌面 AI 服务器，外观与性能同样出色。简约、静音、经久耐用。",
-    "imageAlt": "iClaw 工业设计 - 精密铝合金机身",
-    "specs": [
-      { "label": "操作系统", "value": "Linux" },
-      { "label": "处理器", "value": "RK / 全志 四核" },
-      { "label": "内存", "value": "4 GB" },
-      { "label": "存储", "value": "32 GB + SD 卡" },
-      { "label": "软件", "value": "OpenClaw" },
-      { "label": "网络", "value": "WiFi" },
-      { "label": "噪音", "value": "静音运行" },
-      { "label": "体积", "value": "桌面紧凑型" }
-    ]
+    "desc": "两款产品，同一理念 —— 简约、强大、经久耐用。",
+    "iclaw": {
+      "name": "iClaw",
+      "tagline": "桌面 AI 一体机",
+      "imageAlt": "iClaw 工业设计 - 精密铝合金机身",
+      "specs": [
+        { "label": "操作系统", "value": "Linux" },
+        { "label": "处理器", "value": "RK / 全志 四核" },
+        { "label": "内存", "value": "4 GB" },
+        { "label": "存储", "value": "32 GB + SD 卡" },
+        { "label": "软件", "value": "OpenClaw" },
+        { "label": "网络", "value": "WiFi" },
+        { "label": "噪音", "value": "静音运行" },
+        { "label": "体积", "value": "桌面紧凑型" }
+      ]
+    },
+    "uclaw": {
+      "name": "uClaw",
+      "tagline": "U 盘版 AI 助手",
+      "imageAlt": "uClaw USB AI U盘 - 双接口设计",
+      "specs": [
+        { "label": "接口", "value": "USB-A + USB-C" },
+        { "label": "处理器", "value": "AI 优化 SoC" },
+        { "label": "存储", "value": "内置闪存" },
+        { "label": "软件", "value": "OpenClaw" },
+        { "label": "兼容性", "value": "Win / Mac / Linux" },
+        { "label": "重量", "value": "< 30g" },
+        { "label": "供电", "value": "USB 供电" },
+        { "label": "尺寸", "value": "标准 U 盘大小" }
+      ]
+    }
   },
   "security": {
     "label": "安全与隐私",
@@ -210,14 +230,15 @@
   "comparison": {
     "label": "对比",
     "heading": "一目了然。",
-    "headers": { "cloudAI": "云端 AI", "selfHosted": "自建部署", "iclaw": "iClaw" },
+    "headers": { "cloudAI": "云端 AI", "selfHosted": "自建部署", "iclaw": "iClaw", "uclaw": "uClaw" },
     "rows": [
-      { "feature": "隐私", "cloud": "数据在远程服务器", "local": "自建部署复杂", "iclaw": "100% 本地，零泄露" },
-      { "feature": "设置", "cloud": "账号 + API 密钥", "local": "数小时配置", "iclaw": "插电即用" },
-      { "feature": "成本", "cloud": "按月订阅", "local": "昂贵的硬件", "iclaw": "一次购买" },
-      { "feature": "性能", "cloud": "依赖网络延迟", "local": "表现参差不齐", "iclaw": "优化且稳定" },
-      { "feature": "离线使用", "cloud": "不支持", "local": "支持", "iclaw": "支持" },
-      { "feature": "更新", "cloud": "供应商控制", "local": "手动更新", "iclaw": "一键 OTA" }
+      { "feature": "隐私", "cloud": "数据在远程服务器", "local": "自建部署复杂", "iclaw": "100% 本地，零泄露", "uclaw": "100% 本地，零泄露" },
+      { "feature": "设置", "cloud": "账号 + API 密钥", "local": "数小时配置", "iclaw": "插电即用", "uclaw": "即插即用" },
+      { "feature": "成本", "cloud": "按月订阅", "local": "昂贵的硬件", "iclaw": "¥718 一次购买", "uclaw": "¥199 一次购买" },
+      { "feature": "性能", "cloud": "依赖网络延迟", "local": "表现参差不齐", "iclaw": "优化且稳定", "uclaw": "轻量高效" },
+      { "feature": "便携性", "cloud": "任意设备", "local": "固定部署", "iclaw": "桌面使用", "uclaw": "口袋大小" },
+      { "feature": "离线使用", "cloud": "不支持", "local": "支持", "iclaw": "支持", "uclaw": "支持" },
+      { "feature": "更新", "cloud": "供应商控制", "local": "手动更新", "iclaw": "一键 OTA", "uclaw": "一键 OTA" }
     ]
   },
   "pricing": {
@@ -378,7 +399,11 @@
     "heading2": "构建未来。",
     "desc": "AI 属于每一个人。加入数千名已在使用 iClaw 驱动工作和创造力的用户。",
     "preorder": "立即预购",
-    "community": "加入社区"
+    "community": "加入社区",
+    "modal": {
+      "title": "添加微信",
+      "note": "扫码添加微信，备注「加入社区」"
+    }
   },
   "footer": {
     "tagline": "AI 属于每一个人。",
