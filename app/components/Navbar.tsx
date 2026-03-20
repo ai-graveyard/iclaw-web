@@ -38,7 +38,7 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 h-14">
-          <a href="#" className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
+          <a href="/" className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
             iClaw
           </a>
 

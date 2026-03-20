@@ -77,7 +77,8 @@
       "tagline": "USB AI Assistant",
       "desc": "Plug into any computer for instant AI power. Your personal AI, portable and always ready.",
       "imageAlt": "uClaw AI USB Drive - product view"
-    }
+    },
+    "learnMore": "Learn More"
   },
   "features": {
     "label": "Core Features",
@@ -279,6 +280,98 @@
         "close": "Close"
       }
     }
+  },
+  "iclawPage": {
+    "subtitle": "Desktop AI Computer",
+    "desc": "A plug-and-play personal AI computer. Powerful performance, silent operation, built for your desk.",
+    "preorder": "Pre-order Now",
+    "backHome": "Back to Home",
+    "featuresLabel": "Why iClaw",
+    "featuresHeading": "Your personal AI powerhouse.",
+    "features": [
+      {
+        "title": "Plug & Play",
+        "desc": "No setup, no configuration. Power on and start using AI models immediately."
+      },
+      {
+        "title": "100% Private",
+        "desc": "All data stays on your device. No cloud uploads, no tracking, no data leaks."
+      },
+      {
+        "title": "Always On",
+        "desc": "A dedicated AI companion that's always ready, learning and growing with you over time."
+      },
+      {
+        "title": "Rich Ecosystem",
+        "desc": "AI agents, workflows, plugins, and a vibrant community — all at your fingertips."
+      }
+    ],
+    "specsLabel": "Specifications",
+    "specsHeading": "Built to perform.",
+    "specs": [
+      { "label": "OS", "value": "Linux" },
+      { "label": "Processor", "value": "RK / Allwinner Quad-core" },
+      { "label": "Memory", "value": "4 GB" },
+      { "label": "Storage", "value": "32 GB + SD" },
+      { "label": "Software", "value": "OpenClaw" },
+      { "label": "Connectivity", "value": "WiFi" },
+      { "label": "Noise", "value": "Silent operation" },
+      { "label": "Footprint", "value": "Compact desktop" }
+    ]
+  },
+  "uclawPage": {
+    "subtitle": "USB AI Assistant",
+    "desc": "Pocket-sized AI that turns any computer into your personal AI workstation. Just plug in and go.",
+    "buy": "Buy Now",
+    "backHome": "Back to Home",
+    "featuresLabel": "Why uClaw",
+    "featuresHeading": "AI in your pocket.",
+    "features": [
+      {
+        "title": "Ultra Portable",
+        "desc": "Fits in your pocket or on a keychain. Take your AI assistant everywhere you go."
+      },
+      {
+        "title": "Instant AI",
+        "desc": "Plug into any USB port and get instant access to AI models. No installation needed."
+      },
+      {
+        "title": "Universal Compatibility",
+        "desc": "Works with any computer — Windows, Mac, or Linux. Your AI, on any machine."
+      },
+      {
+        "title": "Private & Secure",
+        "desc": "Your data stays on the device. No cloud, no tracking, complete privacy."
+      }
+    ],
+    "specsLabel": "Specifications",
+    "specsHeading": "Small but mighty.",
+    "specs": [
+      { "label": "Interface", "value": "USB-A + USB-C" },
+      { "label": "Processor", "value": "AI-optimized SoC" },
+      { "label": "Storage", "value": "Built-in flash" },
+      { "label": "Software", "value": "OpenClaw" },
+      { "label": "Compatibility", "value": "Win / Mac / Linux" },
+      { "label": "Weight", "value": "< 30g" },
+      { "label": "Power", "value": "USB powered" },
+      { "label": "Size", "value": "Standard USB drive" }
+    ],
+    "useCasesLabel": "Use Cases",
+    "useCasesHeading": "AI wherever you need it.",
+    "useCases": [
+      {
+        "title": "Business Travel",
+        "desc": "Plug into hotel or office computers for instant AI assistance without installing anything."
+      },
+      {
+        "title": "Student Life",
+        "desc": "Use AI on campus computers, library workstations, or any shared machine."
+      },
+      {
+        "title": "Quick Tasks",
+        "desc": "Need AI for a quick writing task or code review? Plug in, get it done, unplug."
+      }
+    ]
   },
   "cta": {
     "heading1": "Start building",

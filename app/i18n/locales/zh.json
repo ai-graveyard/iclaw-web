@@ -77,7 +77,8 @@
       "tagline": "U 盘版 AI 助手",
       "desc": "插入任意电脑即可使用的便携 AI，随身携带你的私人 AI 算力。",
       "imageAlt": "uClaw AI U盘 - 产品视图"
-    }
+    },
+    "learnMore": "了解更多"
   },
   "features": {
     "label": "核心功能",
@@ -279,6 +280,98 @@
         "close": "关闭"
       }
     }
+  },
+  "iclawPage": {
+    "subtitle": "桌面 AI 一体机",
+    "desc": "开箱即用的私人 AI 电脑。强大算力，静音运行，专为桌面场景打造。",
+    "preorder": "立即预购",
+    "backHome": "返回首页",
+    "featuresLabel": "为什么选 iClaw",
+    "featuresHeading": "你的私人 AI 算力中心。",
+    "features": [
+      {
+        "title": "即插即用",
+        "desc": "无需安装，无需配置。通电即可使用 AI 模型。"
+      },
+      {
+        "title": "100% 隐私",
+        "desc": "所有数据留在你的设备上。不上传、不追踪、不泄露。"
+      },
+      {
+        "title": "永远在线",
+        "desc": "一个专属的 AI 伙伴，随时待命，随时间与你一起成长。"
+      },
+      {
+        "title": "丰富生态",
+        "desc": "AI 智能体、工作流、插件和活跃社区 —— 触手可及。"
+      }
+    ],
+    "specsLabel": "产品规格",
+    "specsHeading": "为性能而生。",
+    "specs": [
+      { "label": "操作系统", "value": "Linux" },
+      { "label": "处理器", "value": "RK / 全志 四核" },
+      { "label": "内存", "value": "4 GB" },
+      { "label": "存储", "value": "32 GB + SD 卡" },
+      { "label": "软件", "value": "OpenClaw" },
+      { "label": "网络", "value": "WiFi" },
+      { "label": "噪音", "value": "静音运行" },
+      { "label": "体积", "value": "桌面紧凑型" }
+    ]
+  },
+  "uclawPage": {
+    "subtitle": "U 盘版 AI 助手",
+    "desc": "口袋大小的 AI，让任何电脑变成你的私人 AI 工作站。插上即用。",
+    "buy": "立即购买",
+    "backHome": "返回首页",
+    "featuresLabel": "为什么选 uClaw",
+    "featuresHeading": "口袋里的 AI。",
+    "features": [
+      {
+        "title": "超便携",
+        "desc": "放进口袋或挂在钥匙扣上。随身携带你的 AI 助手。"
+      },
+      {
+        "title": "即时 AI",
+        "desc": "插入任意 USB 接口即可使用 AI 模型。无需安装任何软件。"
+      },
+      {
+        "title": "通用兼容",
+        "desc": "兼容任意电脑 —— Windows、Mac 或 Linux。你的 AI，在任何设备上。"
+      },
+      {
+        "title": "隐私安全",
+        "desc": "数据留在设备上。不上云、不追踪，完全隐私。"
+      }
+    ],
+    "specsLabel": "产品规格",
+    "specsHeading": "小巧却强大。",
+    "specs": [
+      { "label": "接口", "value": "USB-A + USB-C" },
+      { "label": "处理器", "value": "AI 优化 SoC" },
+      { "label": "存储", "value": "内置闪存" },
+      { "label": "软件", "value": "OpenClaw" },
+      { "label": "兼容性", "value": "Win / Mac / Linux" },
+      { "label": "重量", "value": "< 30g" },
+      { "label": "供电", "value": "USB 供电" },
+      { "label": "尺寸", "value": "标准 U 盘大小" }
+    ],
+    "useCasesLabel": "使用场景",
+    "useCasesHeading": "随时随地，AI 相伴。",
+    "useCases": [
+      {
+        "title": "商务出差",
+        "desc": "在酒店或办公室的电脑上插入即可使用 AI，无需安装任何软件。"
+      },
+      {
+        "title": "校园生活",
+        "desc": "在校园电脑、图书馆工作站或任何共享设备上使用 AI。"
+      },
+      {
+        "title": "快速任务",
+        "desc": "需要 AI 帮你写作或审查代码？插入、完成、拔出，就这么简单。"
+      }
+    ]
   },
   "cta": {
     "heading1": "开始用 AI",
