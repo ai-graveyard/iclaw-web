@@ -235,7 +235,7 @@
     "rows": [
       { "feature": "Privacy", "cloud": "Data on remote servers", "local": "Complex self-hosting", "iclaw": "100% local, zero leaks", "uclaw": "100% local, zero leaks" },
       { "feature": "Setup", "cloud": "Account + API keys", "local": "Hours of configuration", "iclaw": "Plug in and go", "uclaw": "Plug in and go" },
-      { "feature": "Cost", "cloud": "Monthly subscriptions", "local": "Expensive hardware", "iclaw": "$718 one-time", "uclaw": "$199 one-time" },
+      { "feature": "Cost", "cloud": "Monthly subscriptions", "local": "Expensive hardware", "iclaw": "$718 one-time", "uclaw": "$269 one-time" },
       { "feature": "Performance", "cloud": "Latency dependent", "local": "Varies widely", "iclaw": "Optimized & consistent", "uclaw": "Lightweight & fast" },
       { "feature": "Portability", "cloud": "Any device", "local": "Fixed setup", "iclaw": "Desktop", "uclaw": "Pocket-sized" },
       { "feature": "Offline Use", "cloud": "No", "local": "Yes", "iclaw": "Yes", "uclaw": "Yes" },
@@ -265,7 +265,7 @@
     "uclaw": {
       "name": "uClaw",
       "tagline": "USB AI Assistant",
-      "price": "$199",
+      "price": "$269",
       "desc": "One-time purchase. Plug and play. Take it anywhere.",
       "features": [
         "Ready-to-use AI models",
@@ -278,7 +278,7 @@
       "cta": "Buy Now",
       "modal": {
         "title": "WeChat Pay",
-        "amount": "Pay ¥199 to purchase uClaw",
+        "amount": "Pay ¥269 to purchase uClaw",
         "note": "Our price includes not just the hardware, but also an ongoing companion course.",
         "register": "Click here to join the learning community",
         "close": "Close"

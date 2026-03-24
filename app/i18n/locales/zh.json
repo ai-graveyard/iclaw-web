@@ -235,7 +235,7 @@
     "rows": [
       { "feature": "隐私", "cloud": "数据在远程服务器", "local": "自建部署复杂", "iclaw": "100% 本地，零泄露", "uclaw": "100% 本地，零泄露" },
       { "feature": "设置", "cloud": "账号 + API 密钥", "local": "数小时配置", "iclaw": "插电即用", "uclaw": "即插即用" },
-      { "feature": "成本", "cloud": "按月订阅", "local": "昂贵的硬件", "iclaw": "¥718 一次购买", "uclaw": "¥199 一次购买" },
+      { "feature": "成本", "cloud": "按月订阅", "local": "昂贵的硬件", "iclaw": "¥718 一次购买", "uclaw": "¥269 一次购买" },
       { "feature": "性能", "cloud": "依赖网络延迟", "local": "表现参差不齐", "iclaw": "优化且稳定", "uclaw": "轻量高效" },
       { "feature": "便携性", "cloud": "任意设备", "local": "固定部署", "iclaw": "桌面使用", "uclaw": "口袋大小" },
       { "feature": "离线使用", "cloud": "不支持", "local": "支持", "iclaw": "支持", "uclaw": "支持" },
@@ -265,7 +265,7 @@
     "uclaw": {
       "name": "uClaw",
       "tagline": "U 盘版 AI 助手",
-      "price": "¥199",
+      "price": "¥269",
       "desc": "一次购买，即插即用，随身携带。",
       "features": [
         "即用型 AI 模型",
@@ -278,7 +278,7 @@
       "cta": "立即购买",
       "modal": {
         "title": "微信扫码支付",
-        "amount": "支付 ¥199 即可购买 uClaw",
+        "amount": "支付 ¥269 即可购买 uClaw",
         "note": "我们的价格不只包含硬件，还包含了一个持续陪伴的课程。",
         "register": "点击此处进入学习社群",
         "close": "关闭"
