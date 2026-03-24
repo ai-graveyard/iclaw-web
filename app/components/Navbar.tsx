@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -16,6 +17,7 @@ export default function Navbar() {
     { label: t("nav.aiPower") as string, href: "#ai-power" },
     { label: t("nav.useCases") as string, href: "#use-cases" },
     { label: t("nav.design") as string, href: "#design" },
+    { label: t("nav.guide") as string, href: "/uClaw-guide.html", target: "_blank", rel: "noreferrer" },
     { label: t("nav.pricing") as string, href: "#pricing" },
   ];
 
@@ -38,9 +40,9 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 h-14">
-          <a href="/" className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
+          <Link href="/" className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
             <span className="text-[#2997ff]">i</span>&amp;<span className="text-[#30d158]">u</span> Claw
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -48,6 +50,8 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                target={link.target}
+                rel={link.rel}
                 className="text-sm text-[var(--gray-400)] hover:text-[var(--foreground)] transition-colors duration-300"
               >
                 {link.label}
@@ -108,6 +112,8 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
+                  target={link.target}
+                  rel={link.rel}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.3 }}

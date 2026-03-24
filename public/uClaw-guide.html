@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>uClaw 虾盘 - 使用指南</title>
+<meta name="description" content="uClaw 虾盘使用指南。">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<style>
+:root {
+  --bg: #fafafa;
+  --sidebar-bg: #ffffff;
+  --card: #ffffff;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --accent: #0071e3;
+  --accent-light: #f5f5f7;
+  --border: #d2d2d7;
+  --border-light: #e5e5e5;
+  --sidebar-w: 280px;
+  --shadow-subtle: 0 2px 12px rgba(0,0,0,0.04);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 32px rgba(0,0,0,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border-light);
+  overflow-y: auto;
+  padding: 32px 0;
+  z-index: 100;
+  box-shadow: var(--shadow-subtle);
+}
+.sidebar::-webkit-scrollbar { width: 4px }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px }
+.sidebar-logo {
+  padding: 0 24px 24px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sidebar-logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  box-shadow: 0 4px 12px rgba(255,107,107,0.3);
+}
+.sidebar-logo h2 {
+  color: var(--text);
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.sidebar-logo p {
+  color: var(--text-secondary);
+  font-size: 0.72em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.nav-group { margin-bottom: 4px }
+.nav-group-title {
+  display: flex;
+  align-items: center;
+  padding: 10px 28px;
+  color: var(--text-secondary);
+  font-size: 0.82em;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.nav-group-title:hover { color: var(--text) }
+.nav-group-title .arrow { margin-right: 8px; transition: transform 0.2s; font-size: 0.65em; opacity: 0.5 }
+.nav-group.open .arrow { transform: rotate(90deg) }
+.nav-group-items { display: none; padding: 0 0 6px }
+.nav-group.open .nav-group-items { display: block }
+.nav-item {
+  display: block;
+  padding: 8px 28px 8px 44px;
+  color: var(--text-secondary);
+  font-size: 0.85em;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-item:hover { color: var(--text); background: var(--accent-light) }
+.nav-item.active { color: var(--accent); border-left-color: var(--accent); background: var(--accent-light); font-weight: 500 }
+
+/* Main content */
+.main {
+  margin-left: var(--sidebar-w);
+  padding: 64px 80px 100px;
+  max-width: calc(var(--sidebar-w) + 900px);
+  min-height: 100vh;
+}
+h1 {
+  font-size: 2.8em;
+  margin-bottom: 12px;
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+h2 {
+  color: var(--text);
+  font-size: 1.6em;
+  margin: 56px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-light);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+h3 {
+  color: var(--text);
+  font-size: 1.15em;
+  margin: 32px 0 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+p, li { margin-bottom: 10px; color: var(--text-secondary); line-height: 1.7 }
+p:first-child, h1 + p { color: var(--text-secondary) }
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s }
+a:hover { opacity: 0.7 }
+code {
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 0.88em;
+  font-family: "SF Mono", SFMono-Regular, Menlo, Monaco, monospace;
+}
+pre {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 20px 24px;
+  overflow-x: auto;
+  margin: 16px 0;
+  box-shadow: var(--shadow-card);
+}
+pre code { background: none; padding: 0; color: var(--text); font-size: 0.9em }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin: 24px 0;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.3s;
+}
+.card:hover { box-shadow: var(--shadow-hover) }
+.tip {
+  border-left: 3px solid #34c759;
+  padding: 16px 20px;
+  margin: 24px 0;
+  background: rgba(52,199,89,0.04);
+  border-radius: 0 10px 10px 0;
+}
+.warn {
+  border-left: 3px solid #ff9500;
+  padding: 16px 20px;
+  margin: 24px 0;
+  background: rgba(255,149,0,0.04);
+  border-radius: 0 10px 10px 0;
+}
+.danger {
+  border-left: 3px solid #ff3b30;
+  padding: 16px 20px;
+  margin: 24px 0;
+  background: rgba(255,59,48,0.04);
+  border-radius: 0 10px 10px 0;
+}
+table { width: 100%; border-collapse: collapse; margin: 20px 0 }
+th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--border-light) }
+th { color: var(--text); font-weight: 600; font-size: 0.9em }
+tr:hover td { background: var(--accent-light) }
+ul { padding-left: 24px }
+li { color: var(--text-secondary) }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 5px; font-size: 0.75em; font-weight: 600 }
+.badge-green { background: rgba(52,199,89,0.12); color: #34c759 }
+.step { display: flex; align-items: flex-start; margin: 20px 0 }
+.step-num {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 600;
+  font-size: 0.85em;
+  margin-right: 16px;
+  margin-top: 2px;
+  box-shadow: 0 2px 8px rgba(0,113,227,0.3);
+}
+.step-content { flex: 1 }
+.step-content strong { color: var(--text); font-weight: 600 }
+
+/* Page sections */
+.page { display: none }
+.page.active { display: block }
+
+/* Mobile */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 200;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.1em;
+  box-shadow: var(--shadow-subtle);
+}
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; box-shadow: none }
+  .sidebar.open { transform: translateX(0); box-shadow: var(--shadow-hover) }
+  .main { margin-left: 0; padding: 24px 20px 80px }
+  h1 { font-size: 2em }
+}
+
+/* Search */
+.search-box { margin: 16px 20px 20px; position: relative }
+.search-box input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--accent-light);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.85em;
+  outline: none;
+  transition: all 0.2s;
+}
+.search-box input:focus { border-color: var(--accent); background: var(--card) }
+.search-box input::placeholder { color: var(--text-secondary) }
+
+/* Footer nav */
+.footer-nav { display: flex; justify-content: space-between; margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border-light) }
+.footer-nav a { color: var(--text-secondary); font-size: 0.9em; transition: color 0.2s }
+.footer-nav a:hover { color: var(--accent); opacity: 1 }
+
+/* Hero intro styling */
+.page.active > h1 { font-size: 3em; font-weight: 700 }
+.page.active > h1 + p { font-size: 1.2em; margin-bottom: 40px }
+
+/* Feature table styling */
+table tr td:first-child { font-weight: 500; color: var(--text) }
+table tr td:first-child strong { font-weight: 600 }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">&#9776; 导航</button>
+
+<aside class="sidebar" id="sidebar">
+  <div class="search-box">
+    <input type="text" id="search" placeholder="搜索文档..." oninput="filterNav(this.value)">
+  </div>
+
+  <nav id="nav">
+    <!-- ① 入口：了解 + 总览 -->
+    <div class="nav-group open">
+      <div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">▶</span> 🚀 快速开始</div>
+      <div class="nav-group-items">
+        <a class="nav-item active" href="#" data-page="intro">什么是 uClaw</a>
+      </div>
+    </div>
+
+    <!-- ② 安装：所有安装方式集中 -->
+    <div class="nav-group open">
+      <div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">▶</span> 📦 安装方式</div>
+      <div class="nav-group-items">
+        <a class="nav-item" href="#" data-page="quickstart">3 分钟快速上手</a>
+        <a class="nav-item" href="#" data-page="usb-run">详细安装教程</a>
+      </div>
+    </div>
+
+    <!-- ③ 装完后：首次配置 -->
+    <div class="nav-group">
+      <div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">▶</span> ⚙️ 首次配置</div>
+      <div class="nav-group-items">
+        <a class="nav-item" href="#" data-page="onboard">配置向导</a>
+        <a class="nav-item" href="#" data-page="dashboard">网页控制台</a>
+      </div>
+    </div>
+
+    <!-- ④ 模型 -->
+    <div class="nav-group">
+      <div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">▶</span> 🤖 模型配置</div>
+      <div class="nav-group-items">
+        <a class="nav-item" href="#" data-page="models-cn">国产模型（免翻墙）</a>
+        <a class="nav-item" href="#" data-page="models-intl">国际模型</a>
+        <a class="nav-item" href="#" data-page="deepseek">DeepSeek 配置</a>
+        <a class="nav-item" href="#" data-page="kimi">Kimi 配置</a>
+        <a class="nav-item" href="#" data-page="qwen">通义千问配置</a>
+        <a class="nav-item" href="#" data-page="openrouter">OpenRouter 统一网关</a>
+      </div>
+    </div>
+
+    <!-- ⑤ 平台 -->
+    <div class="nav-group">
+      <div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">▶</span> 💬 接入平台</div>
+      <div class="nav-group-items">
+        <a class="nav-item" href="#" data-page="channels-all">全部平台一览</a>
+        <a class="nav-item" href="#" data-page="qq">QQ 机器人</a>
+        <a class="nav-item" href="#" data-page="feishu">飞书</a>
+        <a class="nav-item" href="#" data-page="dingtalk">钉钉</a>
+        <a class="nav-item" href="#" data-page="wecom">企业微信</a>
+        <a class="nav-item" href="#" data-page="telegram">Telegram</a>
+      </div>
+    </div>
+
+    <!-- ⑥ 技能 -->
+    <div class="nav-group">
+      <div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">▶</span> 🎯 技能</div>
+      <div class="nav-group-items">
+        <a class="nav-item" href="#" data-page="skills-overview">技能概览（52 个内置）</a>
+        <a class="nav-item" href="#" data-page="skills-cn">国内热门技能</a>
+        <a class="nav-item" href="#" data-page="skills-install">安装与管理</a>
+        <a class="nav-item" href="https://skillhub.tencent.com/#categories">技能市场 ↗</a>
+      </div>
+    </div>
+
+    <!-- ⑦ 日常 -->
+    <div class="nav-group">
+      <div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">▶</span> 📋 日常使用</div>
+      <div class="nav-group-items">
+        <a class="nav-item" href="#" data-page="cron">定时任务</a>
+        <a class="nav-item" href="#" data-page="multi-model">多模型与省钱</a>
+        <a class="nav-item" href="#" data-page="rec-tools">AI 工具推荐</a>
+      </div>
+    </div>
+
+    <!-- ⑧ 进阶 -->
+    <div class="nav-group">
+      <div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">▶</span> 🔒 进阶部署</div>
+      <div class="nav-group-items">
+        <a class="nav-item" href="#" data-page="security">安全加固</a>
+        <a class="nav-item" href="#" data-page="config-ref">配置文件参考</a>
+        <a class="nav-item" href="#" data-page="env-vars">环境变量</a>
+        <a class="nav-item" href="#" data-page="commands">命令速查</a>
+      </div>
+    </div>
+
+    <!-- ⑨ 问题 -->
+    <div class="nav-group">
+      <div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span class="arrow">▶</span> ❓ 常见问题</div>
+      <div class="nav-group-items">
+        <a class="nav-item" href="#" data-page="faq">FAQ</a>
+        <a class="nav-item" href="#" data-page="doctor">诊断修复</a>
+        <a class="nav-item" href="#" data-page="maintain">维护与卸载</a>
+      </div>
+    </div>
+  </nav>
+</aside>
+
+<main class="main">
+
+<!-- ===== 什么是 uClaw ===== -->
+<div class="page active" id="page-intro">
+<h1>🦞 uClaw 虾盘</h1>
+<p style="color:var(--dim);font-size:1.1em;margin-bottom:32px">OpenClaw · 插上 U 盘，AI 助手即刻可用</p>
+
+<div class="card">
+<p><strong>uClaw（虾盘）</strong>是一个预装在 U 盘上的 AI 助手完整环境。基于 OpenClaw 开源框架，把 Node.js、OpenClaw、所有依赖打包到 U 盘。</p>
+</div>
+
+<h2>核心优势</h2>
+<table>
+<tr><td>🔌 <strong>即插即用</strong></td><td>双击脚本启动，零安装，3 分钟开始用</td></tr>
+<tr><td>🇨🇳 <strong>全中文界面</strong></td><td>CLI、控制台、配置向导全部中文化</td></tr>
+<tr><td>💾 <strong>便携模式</strong></td><td>配置保存在 U 盘，换电脑继续用</td></tr>
+<tr><td>📦 <strong>完全离线安装</strong></td><td>不需要联网下载依赖</td></tr>
+<tr><td>🖥️ <strong>跨平台</strong></td><td>Windows / macOS 全支持</td></tr>
+<tr><td>💬 <strong>20+ 聊天平台</strong></td><td>QQ、飞书、钉钉、企业微信、Telegram...</td></tr>
+<tr><td>🎯 <strong>52 个预装技能</strong></td><td>编程、搜索、翻译、文件管理等</td></tr>
+</table>
+</div>
+
+<!-- ===== 快速上手 ===== -->
+<div class="page" id="page-quickstart">
+<h1>3 分钟快速上手</h1>
+
+<h2>U 盘便携版（免安装）</h2>
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>插入 U 盘</strong><p style="color:var(--dim)">将 uClaw U 盘插入电脑</p></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>双击启动脚本</strong>
+<table><tr><th>系统</th><th>双击打开</th></tr>
+<tr><td>macOS</td><td><code>Mac-Start.command</code></td></tr>
+<tr><td>Windows</td><td><code>Windows-Start.bat</code></td></tr>
+</table>
+</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>首次配置</strong><p style="color:var(--dim)">浏览器自动打开 Config.html → 选择 AI 模型 → 填写 API Key</p></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>开始使用</strong><p style="color:var(--dim)">控制台自动打开 <code>http://127.0.0.1:18789</code></p></div></div>
+
+</div>
+
+<!-- ===== 从 U 盘运行 ===== -->
+<div class="page" id="page-usb-run">
+<h1>从 U 盘运行（免安装便携模式）</h1>
+<p>便携模式下，所有配置、API Key、记忆保存在 U 盘的 <code>data/</code> 目录。换电脑插上 U 盘，配置还在。</p>
+<div class="tip"><strong>适合场景：</strong>老电脑、临时电脑、公司电脑、网吧、不想改本机环境</div>
+
+<h2>U 盘文件说明</h2>
+<table>
+<tr><th>文件</th><th>说明</th></tr>
+<tr><td><code>Mac-Start.command</code></td><td>macOS 一键启动（双击即可）</td></tr>
+<tr><td><code>Mac-Menu.command</code></td><td>macOS 功能菜单（8 项：配置、QQ、备份等）</td></tr>
+<tr><td><code>Windows-Start.bat</code></td><td>Windows 一键启动</td></tr>
+<tr><td><code>Windows-Menu.bat</code></td><td>Windows 功能菜单</td></tr>
+<tr><td><code>Config.html</code></td><td>首次配置页面（选模型、填 API Key）</td></tr>
+<tr><td><code>uClaw.html</code></td><td>导航首页</td></tr>
+<tr><td><code>setup.sh</code></td><td>开发者搭建脚本（自动下载运行时）</td></tr>
+</table>
+
+<h2>目录结构</h2>
+<pre><code>portable/
+├── app/                    ← 运行时（约 2.3GB）
+│   ├── core/                  OpenClaw + 依赖 + QQ 插件
+│   └── runtime/
+│       ├── node-mac-arm64/    Mac Apple Silicon
+│       ├── node-win-x64/     Windows 64-bit
+├── data/                   ← 用户数据（配置、记忆、备份）
+│   ├── .openclaw/             openclaw.json 配置文件
+│   ├── memory/                AI 记忆
+│   └── backups/               备份
+└── [启动脚本和HTML页面]</code></pre>
+
+<div class="warn"><strong>注意：</strong>目前支持 Mac Apple Silicon (M1-M4)、Mac Intel 和 Windows。</div>
+</div>
+
+
+<!-- ===== 首次配置 ===== -->
+<div class="page" id="page-onboard">
+<h1>首次配置向导</h1>
+<p>首次运行自动进入 <code>onboard</code> 向导：</p>
+<div class="step"><div class="step-num">1</div><div class="step-content">选择 AI 模型提供商（DeepSeek / Kimi / OpenAI / Anthropic...）</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content">填写 API Key</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content">配置网关（自动完成）</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content">选择聊天平台（可跳过，后续添加）</div></div>
+<p>手动重新运行：<code>openclaw onboard</code></p>
+</div>
+
+<!-- ===== 国产模型 ===== -->
+<div class="page" id="page-models-cn">
+<h1>国产模型（免翻墙）</h1>
+<table>
+<tr><th>模型</th><th>提供商</th><th>onboard 选择</th><th>推荐场景</th></tr>
+<tr><td>DeepSeek</td><td>深度求索</td><td>Custom Provider</td><td>编程首选，性价比高</td></tr>
+<tr><td>Kimi</td><td>月之暗面</td><td>Moonshot AI</td><td>长文档，256K 上下文</td></tr>
+<tr><td>通义千问</td><td>阿里</td><td>Qwen</td><td>免费额度大</td></tr>
+<tr><td>GLM</td><td>智谱 AI</td><td>Zhipu AI</td><td>学术、中文 NLP</td></tr>
+<tr><td>豆包</td><td>字节跳动</td><td>Volcano Engine</td><td>火山引擎</td></tr>
+<tr><td>MiniMax</td><td>MiniMax</td><td>MiniMax</td><td>语音、多模态</td></tr>
+</table>
+
+<h2>新手首次配置推荐</h2>
+<p>如果你是第一次配置 AI 模型，以下模型<strong>配置最简单</strong>，适合入门：</p>
+<table>
+<tr><th>模型</th><th>配置难度</th><th>说明</th></tr>
+<tr><td><strong>Kimi (月之暗面)</strong></td><td>最简单</td><td>注册即用，向导直接选择</td></tr>
+<tr><td><strong>智谱 GLM</strong></td><td>简单</td><td>免费额度，配置直观</td></tr>
+<tr><td><strong>通义千问 Qwen</strong></td><td>简单</td><td>阿里云生态，免费额度大</td></tr>
+<tr><td><strong>DeepSeek</strong></td><td>简单</td><td>需填 Custom Provider + Base URL</td></tr>
+<tr><td><strong>腾讯混元</strong></td><td>中等</td><td>腾讯云生态</td></tr>
+</table>
+<div class="danger"><strong>注意：</strong>不建议新手使用淘宝等渠道购买的第三方 API Key。这类 Key 来源不明，调试困难，容易出问题。请直接到各模型官网注册获取。</div>
+</div>
+
+<!-- ===== 国际模型 ===== -->
+<div class="page" id="page-models-intl">
+<h1>国际模型</h1>
+<table>
+<tr><th>模型</th><th>提供商</th><th>推荐场景</th></tr>
+<tr><td>Claude</td><td>Anthropic</td><td>综合最强 + 编程</td></tr>
+<tr><td>GPT-4</td><td>OpenAI</td><td>兼容性广</td></tr>
+<tr><td>Gemini</td><td>Google</td><td>免费额度</td></tr>
+</table>
+
+<div class="warn">国际模型 API 需要翻墙或使用中转站。推荐使用 <a href="https://openrouter.ai" target="_blank">OpenRouter</a> 统一管理。</div>
+
+<h2>通过 OpenRouter（推荐）</h2>
+<p>OpenRouter 汇聚了主流 AI 模型，一个 API Key 用所有模型，部分有免费额度。</p>
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>注册 OpenRouter</strong><br>访问 <a href="https://openrouter.ai" target="_blank">openrouter.ai</a>，GitHub 登录。</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>获取 API Key</strong><br>Keys → Create Key → 复制。</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>配置</strong>
+<pre><code>openclaw onboard
+# 选择 OpenRouter
+# API Key: 粘贴
+# Model: 选择你要用的模型</code></pre></div></div>
+</div>
+
+<!-- ===== DeepSeek ===== -->
+<div class="page" id="page-deepseek">
+<h1>DeepSeek 配置指南</h1>
+<div class="warn"><strong>注意：</strong>onboard 向导中没有 DeepSeek 直接选项，需要选择 Custom Provider。</div>
+<h2>配置步骤</h2>
+<div class="step"><div class="step-num">1</div><div class="step-content">运行 <code>openclaw onboard</code></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content">选择 <strong>Custom Provider</strong></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content">填写信息：
+<pre><code>Base URL:  https://api.deepseek.com/v1
+API Key:   你的 DeepSeek API Key
+Model ID:  deepseek-chat
+Alias:     deepseek（可自定义）</code></pre></div></div>
+<p>API Key 申请：<a href="https://platform.deepseek.com/" target="_blank">platform.deepseek.com</a></p>
+</div>
+
+<!-- ===== QQ 机器人 ===== -->
+<div class="page" id="page-qq">
+<h1>QQ 机器人接入（1 分钟）</h1>
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>注册 QQ 机器人</strong><br>访问 <a href="http://q.qq.com" target="_blank">q.qq.com</a>，扫码注册</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>创建机器人</strong>，获取 AppID 和 AppSecret</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>运行命令</strong>
+<pre><code># 安装 QQ 插件
+openclaw plugins install @sliverp/qqbot@latest
+
+# 绑定机器人
+openclaw channels add --channel qqbot --token "你的AppID:你的AppSecret"
+
+# 设置白名单（重要！）
+openclaw config set channels.qqbot.allowFrom "你的QQ号"
+
+# 重启网关
+openclaw gateway restart</code></pre></div></div>
+</div>
+
+<!-- ===== 飞书 ===== -->
+<div class="page" id="page-feishu">
+<h1>飞书接入</h1>
+<p>OpenClaw 内置飞书支持（<code>feishu</code> 命令）。</p>
+<pre><code># 安装飞书插件
+openclaw plugins install @larksuiteoapi/feishu-openclaw-plugin
+
+# 运行配置向导
+openclaw onboard</code></pre>
+</div>
+
+<!-- ===== 钉钉 ===== -->
+<div class="page" id="page-dingtalk">
+<h1>钉钉接入</h1>
+<p>OpenClaw 内置钉钉连接器。</p>
+<pre><code># 运行配置向导会引导钉钉配置
+openclaw onboard</code></pre>
+</div>
+
+<!-- ===== 企业微信 ===== -->
+<div class="page" id="page-wecom">
+<h1>企业微信接入</h1>
+<p>OpenClaw 内置企业微信 API 支持。</p>
+<pre><code># 运行配置向导
+openclaw onboard</code></pre>
+</div>
+
+<!-- ===== Telegram ===== -->
+<div class="page" id="page-telegram">
+<h1>Telegram 接入（最快）</h1>
+<pre><code># 1. 在 @BotFather 创建 Bot，获取 Token
+# 2. 添加渠道
+openclaw channels add --channel telegram --token "你的Bot_Token"
+# 3. 重启网关
+openclaw gateway restart</code></pre>
+</div>
+
+<!-- ===== 全部平台 ===== -->
+<div class="page" id="page-channels-all">
+<h1>全部聊天平台一览</h1>
+<table>
+<tr><th>平台</th><th>状态</th><th>接入方式</th></tr>
+<tr><td>QQ 机器人</td><td><span class="badge badge-green">已支持</span></td><td>腾讯官方 API</td></tr>
+<tr><td>飞书</td><td><span class="badge badge-green">已支持</span></td><td>内置飞书 API</td></tr>
+<tr><td>钉钉</td><td><span class="badge badge-green">已支持</span></td><td>钉钉连接器</td></tr>
+<tr><td>企业微信</td><td><span class="badge badge-green">已支持</span></td><td>企业微信 API</td></tr>
+<tr><td>Telegram</td><td><span class="badge badge-green">已支持</span></td><td>Bot Token</td></tr>
+<tr><td>Discord</td><td><span class="badge badge-green">已支持</span></td><td>Bot API</td></tr>
+<tr><td>WhatsApp</td><td><span class="badge badge-green">已支持</span></td><td>QR 码配对</td></tr>
+<tr><td>Slack</td><td><span class="badge badge-green">已支持</span></td><td>Bolt SDK</td></tr>
+<tr><td>Signal</td><td><span class="badge badge-green">已支持</span></td><td>signal-cli</td></tr>
+<tr><td>iMessage</td><td><span class="badge badge-green">已支持</span></td><td>macOS 原生</td></tr>
+<tr><td>网页聊天</td><td><span class="badge badge-green">内置</span></td><td>控制台自带</td></tr>
+</table>
+</div>
+
+<!-- ===== 技能概览 ===== -->
+<div class="page" id="page-skills-overview">
+<h1>技能概览</h1>
+<p>uClaw 预装了 <strong>52 个技能</strong>，覆盖编程、搜索、文件管理、社交媒体等场景。总大小仅 404KB。</p>
+<h2>预装技能列表</h2>
+<table>
+<tr><th>技能</th><th>说明</th></tr>
+<tr><td><code>coding-agent</code></td><td>编程助手</td></tr>
+<tr><td><code>summarize</code></td><td>文章/网页总结</td></tr>
+<tr><td><code>weather</code></td><td>天气查询</td></tr>
+<tr><td><code>github</code></td><td>GitHub 操作</td></tr>
+<tr><td><code>notion</code></td><td>Notion 管理</td></tr>
+<tr><td><code>obsidian</code></td><td>Obsidian 知识库</td></tr>
+<tr><td><code>trello</code></td><td>Trello 看板</td></tr>
+<tr><td><code>slack</code></td><td>Slack 消息</td></tr>
+<tr><td><code>discord</code></td><td>Discord 操作</td></tr>
+<tr><td><code>canvas</code></td><td>画布工具</td></tr>
+<tr><td><code>skill-creator</code></td><td>技能创建器</td></tr>
+<tr><td>... 等共 52 个</td><td>启动后运行 <code>openclaw skills list</code> 查看全部</td></tr>
+</table>
+</div>
+
+<!-- ===== 国内热门技能 ===== -->
+<div class="page" id="page-skills-cn">
+<h1>国内热门技能推荐</h1>
+<p>以下技能专为国内社交媒体和内容创作设计，可通过 ClawHub 安装。</p>
+
+<h2>自媒体运营（6 大平台）</h2>
+<table>
+<tr><th>技能名称</th><th>安装命令</th><th>功能</th></tr>
+<tr><td><strong>xiaohongshu-ops</strong></td><td><code>clawhub install xiaohongshu-ops</code></td><td>小红书发布 + 评论回复 + 爆款复刻 + 数据分析</td></tr>
+<tr><td><strong>canghe-post-to-wechat</strong></td><td><code>clawhub install canghe-post-to-wechat</code></td><td>微信公众号一键发布 + 排版</td></tr>
+<tr><td><strong>douyin-publisher</strong></td><td><code>clawhub install douyin-publisher</code></td><td>抖音发布 + DOU+ 投放建议</td></tr>
+<tr><td><strong>bilibili-helper</strong></td><td><code>clawhub install bilibili-helper</code></td><td>B站投稿 / 互动 / 充电计划</td></tr>
+<tr><td><strong>weibo-scheduler</strong></td><td><code>clawhub install weibo-scheduler</code></td><td>微博定时发布 + 话题管理</td></tr>
+<tr><td><strong>multi-post</strong></td><td><code>clawhub install multi-post</code></td><td>多平台同步发布（一键发全网）</td></tr>
+</table>
+
+<h2>内容创作工具</h2>
+<table>
+<tr><th>技能名称</th><th>安装命令</th><th>功能</th></tr>
+<tr><td><strong>copywriter</strong></td><td><code>clawhub install copywriter</code></td><td>AI 文案写作助手</td></tr>
+<tr><td><strong>headline-optimizer</strong></td><td><code>clawhub install headline-optimizer</code></td><td>标题优化（提升打开率）</td></tr>
+<tr><td><strong>seo-writer</strong></td><td><code>clawhub install seo-writer</code></td><td>SEO 优化写作</td></tr>
+<tr><td><strong>script-writer</strong></td><td><code>clawhub install script-writer</code></td><td>视频脚本撰写</td></tr>
+<tr><td><strong>canghe-xhs-images</strong></td><td><code>clawhub install canghe-xhs-images</code></td><td>小红书风格配图生成</td></tr>
+<tr><td><strong>canghe-cover-image</strong></td><td><code>clawhub install canghe-cover-image</code></td><td>封面图片生成</td></tr>
+<tr><td><strong>thumbnail-maker</strong></td><td><code>clawhub install thumbnail-maker</code></td><td>视频缩略图制作</td></tr>
+</table>
+
+<h2>数据分析与增长</h2>
+<table>
+<tr><th>技能名称</th><th>安装命令</th><th>功能</th></tr>
+<tr><td><strong>analytics-dashboard</strong></td><td><code>clawhub install analytics-dashboard</code></td><td>数据分析面板</td></tr>
+<tr><td><strong>content-performance</strong></td><td><code>clawhub install content-performance</code></td><td>内容表现追踪</td></tr>
+<tr><td><strong>follower-growth</strong></td><td><code>clawhub install follower-growth</code></td><td>粉丝增长分析</td></tr>
+<tr><td><strong>competitor-analysis</strong></td><td><code>clawhub install competitor-analysis</code></td><td>竞品分析</td></tr>
+<tr><td><strong>trending-hot</strong></td><td><code>clawhub install trending-hot</code></td><td>实时热搜追踪</td></tr>
+</table>
+
+<h2>一键安装全部自媒体技能</h2>
+<pre><code># 一键安装全部 6 大平台 + 创作工具（推荐）
+clawhub install xiaohongshu-ops canghe-post-to-wechat douyin-publisher bilibili-helper weibo-scheduler multi-post copywriter headline-optimizer canghe-xhs-images trending-hot analytics-dashboard</code></pre>
+
+<h2>基础效率工具（推荐新手）</h2>
+<table>
+<tr><th>技能名称</th><th>安装命令</th><th>功能</th></tr>
+<tr><td><strong>agent-browser</strong></td><td><code>clawhub install agent-browser</code></td><td>浏览器自动化（必装）</td></tr>
+<tr><td><strong>agent-memory</strong></td><td><code>clawhub install agent-memory</code></td><td>持久记忆（跨对话记住信息）</td></tr>
+<tr><td><strong>nano-pdf</strong></td><td><code>clawhub install nano-pdf</code></td><td>PDF 阅读和总结</td></tr>
+<tr><td><strong>summarize</strong></td><td><code>clawhub install summarize</code></td><td>文章/网页总结</td></tr>
+</table>
+
+<div class="warn"><strong>安全提醒：</strong>ClawHub 曾发生供应链攻击事件，安装技能前请确认来源可信。推荐只安装上述经过社区验证的技能。</div>
+</div>
+
+<!-- ===== 技能安装 ===== -->
+<div class="page" id="page-skills-install">
+<h1>技能安装与管理</h1>
+<pre><code># 查看已安装技能
+openclaw skills list
+
+# 安装新技能
+openclaw skills install &lt;skill-name&gt;
+
+# 从 ClawdHub 安装
+openclaw skills install clawdhub/&lt;skill-name&gt;
+
+# 创建自定义技能
+openclaw skill-creator</code></pre>
+</div>
+
+<!-- ===== 网页控制台 ===== -->
+<div class="page" id="page-dashboard">
+<h1>网页控制台</h1>
+<p>启动网关后，浏览器访问：</p>
+<p style="font-size:1.3em;text-align:center;margin:20px 0"><code>http://127.0.0.1:18789</code></p>
+<h2>控制台功能</h2>
+<ul>
+<li>直接和 AI 聊天（无需其他平台）</li>
+<li>查看所有渠道状态</li>
+<li>管理技能和插件</li>
+<li>查看聊天记录</li>
+<li>配置模型和参数</li>
+</ul>
+<p>手动打开：<code>openclaw dashboard</code></p>
+</div>
+
+<!-- ===== 命令速查 ===== -->
+<div class="page" id="page-commands">
+<h1>常用命令速查</h1>
+<table>
+<tr><th>命令</th><th>说明</th></tr>
+<tr><td><code>openclaw onboard</code></td><td>配置向导</td></tr>
+<tr><td><code>openclaw dashboard</code></td><td>打开网页控制台</td></tr>
+<tr><td><code>openclaw gateway run</code></td><td>启动网关</td></tr>
+<tr><td><code>openclaw gateway status</code></td><td>查看网关状态</td></tr>
+<tr><td><code>openclaw gateway restart</code></td><td>重启网关</td></tr>
+<tr><td><code>openclaw doctor</code></td><td>诊断 + 修复</td></tr>
+<tr><td><code>openclaw config</code></td><td>配置管理</td></tr>
+<tr><td><code>openclaw channels</code></td><td>渠道管理</td></tr>
+<tr><td><code>openclaw plugins list</code></td><td>已安装插件</td></tr>
+<tr><td><code>openclaw skills list</code></td><td>已安装技能</td></tr>
+<tr><td><code>openclaw models</code></td><td>模型配置</td></tr>
+<tr><td><code>openclaw logs</code></td><td>网关日志</td></tr>
+<tr><td><code>openclaw status</code></td><td>渠道状态</td></tr>
+<tr><td><code>openclaw reset</code></td><td>重置配置</td></tr>
+<tr><td><code>openclaw --help</code></td><td>完整帮助</td></tr>
+</table>
+</div>
+
+<!-- ===== 环境变量 ===== -->
+<div class="page" id="page-env-vars">
+<h1>环境变量</h1>
+<p>uClaw 便携模式通过环境变量把配置指向 U 盘：</p>
+<table>
+<tr><th>变量</th><th>用途</th></tr>
+<tr><td><code>OPENCLAW_HOME</code></td><td>主目录（指向 U 盘 portable-home）</td></tr>
+<tr><td><code>OPENCLAW_STATE_DIR</code></td><td>状态目录</td></tr>
+<tr><td><code>OPENCLAW_CONFIG_PATH</code></td><td>配置文件路径</td></tr>
+</table>
+</div>
+
+<!-- ===== 诊断修复 ===== -->
+<div class="page" id="page-doctor">
+<h1>诊断修复</h1>
+<pre><code># 运行诊断
+openclaw doctor
+
+# 强制启动（端口被占用时）
+openclaw gateway run --force
+
+# 查看日志
+openclaw logs</code></pre>
+<h2>常见问题排查</h2>
+<ul>
+<li><strong>端口 18789 被占用</strong> — 加 <code>--force</code> 参数</li>
+<li><strong>控制台打不开</strong> — 先运行 <code>openclaw gateway status</code> 确认网关在跑</li>
+<li><strong>渠道连不上</strong> — 检查 API Key 是否正确，运行 <code>openclaw status</code></li>
+</ul>
+</div>
+
+<!-- ===== 维护与卸载 ===== -->
+<div class="page" id="page-maintain">
+<h1>维护与卸载</h1>
+<p>uClaw 的菜单脚本（Mac-Menu / Windows-Menu）内置了完整的维护功能，选择对应编号即可操作。</p>
+
+<div class="tip"><strong>启动方式：</strong>双击 <code>Mac-Menu.command</code>（macOS）或 <code>Windows-Menu.bat</code>（Windows），在菜单中选择 9-15 进入维护功能。</div>
+
+<h2>[9] 杀死残留进程</h2>
+<div class="card">
+<h3>什么时候需要？</h3>
+<ul>
+<li>关了浏览器窗口但后台进程还在跑</li>
+<li>端口 18789 被占用，新实例启动失败</li>
+<li>想彻底停止 uClaw 的所有进程</li>
+</ul>
+<h3>操作方式</h3>
+<p>在菜单中选择 <strong>9</strong>，脚本会自动查找并终止所有 OpenClaw 相关进程（node、gateway 等），然后释放端口。</p>
+<div class="tip"><strong>提示：</strong>如果显示"没有找到残留进程"说明后台已经是干净的。</div>
+</div>
+
+<h2>[10] 查看日志</h2>
+<div class="card">
+<h3>三个子功能</h3>
+<ul>
+<li><strong>查看最近日志</strong> — 显示最近 50 行网关日志</li>
+<li><strong>实时跟踪日志</strong> — 实时输出日志（按 Ctrl+C 退出）</li>
+<li><strong>清空日志</strong> — 清除历史日志释放空间</li>
+</ul>
+<h3>日志文件位置</h3>
+<pre><code>data/logs/gateway.log</code></pre>
+<p>每次启动（通过 Start 脚本）都会自动将网关输出捕获到此文件，方便排查问题。</p>
+</div>
+
+<h2>[11] 恢复出厂设置</h2>
+<div class="card">
+<h3>什么时候需要？</h3>
+<ul>
+<li>配置搞乱了想重来</li>
+<li>模型设置出错导致无法启动</li>
+<li>想清除所有个人数据重新开始</li>
+</ul>
+<h3>会做什么？</h3>
+<ol>
+<li>自动备份当前配置到 <code>data/backups/</code></li>
+<li>删除配置文件（<code>openclaw.json</code>）</li>
+<li>删除记忆和对话历史</li>
+<li>恢复为初始默认状态</li>
+</ol>
+<div class="danger"><strong>⚠️ 需要输入 RESET 确认！</strong>此操作会清除你的 API Key 配置和对话记录。虽然会自动备份，但请确认你真的需要重置。</div>
+</div>
+
+<h2>[12] 完整卸载指南</h2>
+<div class="tip"><strong>卸载前请先备份：</strong>如果你有重要的对话记录或配置，先手动复制 <code>data/</code> 目录到安全位置。</div>
+
+<div class="card">
+<h3>U 盘便携版卸载</h3>
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>关闭所有 uClaw 窗口</strong><p style="color:var(--dim)">确保浏览器中没有打开的 uClaw 页面</p></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>杀死残留进程</strong><p style="color:var(--dim)">运行菜单选项 9，或关闭终端窗口</p></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>安全弹出 U 盘</strong><p style="color:var(--dim)">右键 U 盘 → 弹出（不要直接拔！）</p></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>完毕</strong><p style="color:var(--dim)">所有数据都在 U 盘上，电脑无任何残留</p></div></div>
+<div class="warn"><strong>注意：</strong>如果曾经用 <code>Mac-Install.command</code> 安装到电脑，还需要手动删除 <code>~/.uclaw/</code> 目录。</div>
+</div>
+
+<div class="card">
+<h3>桌面安装版（Electron）卸载</h3>
+<p><strong>macOS：</strong></p>
+<ol>
+<li>将 <code>uClaw.app</code> 从「应用程序」拖到废纸篓</li>
+<li>删除用户数据：</li>
+</ol>
+<pre><code>rm -rf ~/Library/Application\ Support/uClaw/</code></pre>
+
+<p><strong>Windows：</strong></p>
+<ol>
+<li>设置 → 应用 → 找到 uClaw → 卸载</li>
+<li>删除用户数据：</li>
+</ol>
+<pre><code>rd /s /q "%APPDATA%\uClaw"</code></pre>
+
+</div>
+
+<div class="card">
+<h3>原生安装版（npm 全局安装）卸载</h3>
+<pre><code># 卸载 OpenClaw
+npm uninstall -g openclaw
+
+# 删除配置和数据
+rm -rf ~/.openclaw/</code></pre>
+</div>
+
+<div class="card">
+<h3>残留清理检查清单</h3>
+<p>卸载后如果想确认电脑上完全没有 uClaw 的痕迹，检查以下目录是否还存在：</p>
+<table>
+<tr><th>路径</th><th>说明</th><th>系统</th></tr>
+<tr><td><code>~/.uclaw/</code></td><td>从 U 盘安装到电脑的版本</td><td>macOS</td></tr>
+<tr><td><code>~/.openclaw/</code></td><td>npm 全局安装的配置</td><td>所有系统</td></tr>
+<tr><td><code>~/Library/Application Support/uClaw/</code></td><td>Electron 桌面版数据</td><td>macOS</td></tr>
+<tr><td><code>%APPDATA%\uClaw\</code></td><td>Electron 桌面版数据</td><td>Windows</td></tr>
+</table>
+<div class="danger"><strong>⚠️ 删除这些目录后，所有配置和对话记录将永久丢失，无法恢复。</strong></div>
+</div>
+
+<h2>[13] 检查更新</h2>
+<div class="card">
+<p>在菜单中选择 <strong>13</strong>，脚本会自动检查当前 OpenClaw 版本并与最新版对比。如果有新版本可用，会提示你是否立即更新。</p>
+<h3>手动更新（备用）</h3>
+<pre><code># U 盘便携版
+cd app/core && npm update openclaw
+
+# npm 全局安装版
+npm update -g openclaw
+
+# 查看当前版本
+openclaw --version</code></pre>
+</div>
+
+<h2>[14] 清理空间</h2>
+<div class="card">
+<p>在菜单中选择 <strong>14</strong>，脚本会扫描并清理以下内容：</p>
+<ul>
+<li>npm 缓存</li>
+<li>临时文件</li>
+<li>旧版本备份</li>
+<li>日志文件</li>
+</ul>
+<h3>手动清理路径</h3>
+<pre><code># npm 缓存
+npm cache clean --force
+
+# 日志
+rm -f data/logs/gateway.log
+
+# 备份
+rm -rf data/backups/</code></pre>
+</div>
+
+<h2>[15] 插件管理</h2>
+<div class="card">
+<p>在菜单中选择 <strong>15</strong>，可以查看已安装的插件、安装新插件或卸载不需要的插件。</p>
+<h3>命令行备用</h3>
+<pre><code># 查看已安装插件
+openclaw plugin list
+
+# 安装插件
+openclaw plugin install &lt;插件名&gt;
+
+# 卸载插件
+openclaw plugin uninstall &lt;插件名&gt;</code></pre>
+<div class="tip"><strong>推荐插件：</strong>QQ 渠道插件（<code>@nicepkg/openclaw-plugin-qq</code>）是国内用户最常用的插件。</div>
+</div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="page" id="page-faq">
+<h1>常见问题</h1>
+<div class="card">
+<h3>Q: 需要翻墙吗？</h3>
+<p>安装不需要。使用国产模型（DeepSeek、Kimi）无需翻墙。使用 Claude/GPT 需要。</p>
+<h3>Q: U 盘要多大？</h3>
+<p>8GB 起步，16GB 推荐。uClaw 本身约 4GB。</p>
+<h3>Q: Windows 需要 WSL 吗？</h3>
+<p>不需要。自带 Windows 版 Node.js。</p>
+<h3>Q: 怎么更新？</h3>
+<p>最简单的方式：运行菜单脚本（Mac-Menu / Windows-Menu）选择 <strong>[13] 检查更新</strong>，自动完成。手动方式：U 盘模式运行 <code>cd app/core && npm update openclaw</code>，安装模式运行 <code>npm update -g openclaw</code>。详见 <a href="#" data-page="maintain">维护与卸载</a> 页面。</p>
+<h3>Q: 怎么完整卸载？</h3>
+<p>根据你的安装方式不同，卸载步骤也不同。U 盘便携版只需弹出 U 盘即可；桌面版和 npm 版需要额外删除配置目录。详见 <a href="#" data-page="maintain">维护与卸载</a> 页面的完整卸载指南。</p>
+<h3>Q: 配置文件在哪？</h3>
+<p>U 盘：<code>portable-home/.openclaw/openclaw.json</code><br>安装：<code>~/.openclaw/openclaw.json</code></p>
+<h3>Q: 和原版 OpenClaw 的区别？</h3>
+<p>基于 OpenClaw 官方版本，配合 uClaw 中文配置界面，国内镜像加速，开箱即用。</p>
+</div>
+</div>
+
+<!-- ===== 推荐工具 ===== -->
+<div class="page" id="page-rec-tools">
+<h1>🛠️ AI 开发工具推荐</h1>
+<p>配置好 uClaw 之后，这些免费工具能帮你进一步提升效率——无论是在终端用 AI 写代码，还是用可视化编辑器开发项目。</p>
+
+<div class="tip"><strong>为什么推荐这些工具？</strong>它们都是免费的、对国内用户友好的 AI 开发工具。配合 uClaw 提供的 AI 网关，你可以用同一个 API Key 驱动多种开发工具，统一管理、降低成本。</div>
+
+<h2>🖥️ 终端 AI 工具（CLI）</h2>
+<p>CLI 工具运行在终端里，适合喜欢命令行操作或想快速完成自动化任务的用户。</p>
+
+<div class="card">
+<h3>iFlow CLI</h3>
+<p><strong>免费体验前沿大模型</strong>，包括 Kimi K2、Qwen3 Coder 等。</p>
+<ul>
+<li>💡 多智能体协作，可同时调度多个 AI 完成复杂任务</li>
+<li>🔌 支持 IDE 集成，也可独立在终端使用</li>
+<li>🆓 注册即送免费额度，国内直连可用</li>
+</ul>
+<h3>安装方式</h3>
+<p>访问官网下载：<a href="https://cli.iflow.cn/" target="_blank">https://cli.iflow.cn/</a></p>
+<div class="tip"><strong>搭配 uClaw：</strong>在 iFlow 的模型设置中，将 API 地址指向 uClaw 网关（<code>http://localhost:18789</code>），即可通过 uClaw 统一管理 API Key 和模型切换。</div>
+</div>
+
+<div class="card">
+<h3>Kimi CLI</h3>
+<p><strong>月之暗面开源</strong>（Apache 2.0 协议），国产 AI 命令行工具。</p>
+<ul>
+<li>🖼️ 多模态支持，可处理图片、文档等</li>
+<li>🤖 Agent 模式 — 让 AI 自主完成多步任务</li>
+<li>💻 Shell 模式 — 用自然语言操作终端</li>
+<li>📖 完全开源，可自行定制</li>
+</ul>
+<h3>安装方式</h3>
+<pre><code>uv tool install kimi-cli</code></pre>
+<div class="tip"><strong>搭配 uClaw：</strong>设置环境变量 <code>OPENAI_API_BASE=http://localhost:18789/v1</code>，Kimi CLI 即可通过 uClaw 网关调用你配置的任意模型。</div>
+</div>
+
+<h2>📝 AI 编辑器（IDE）</h2>
+<p>如果你更习惯图形界面，AI 编辑器是更直观的选择。</p>
+
+<div class="card">
+<h3>Trae IDE</h3>
+<p><strong>字节跳动出品</strong>，基于 VS Code 的 AI 编辑器。</p>
+<ul>
+<li>🏗️ Builder 模式 — 用自然语言描述需求，AI 帮你生成完整项目</li>
+<li>🌍 支持 100+ 编程语言</li>
+<li>🆓 完全免费使用</li>
+<li>🔧 兼容 VS Code 插件生态</li>
+</ul>
+<h3>安装方式</h3>
+<p>访问官网下载：<a href="https://www.trae.ai/" target="_blank">https://www.trae.ai/</a></p>
+<div class="warn"><strong>建议下载国际版：</strong>国际版功能更完整、模型更丰富。国内版部分功能受限。</div>
+<div class="tip"><strong>搭配 uClaw：</strong>在 Trae 设置中添加自定义模型提供商，API 地址填写 uClaw 网关地址（<code>http://localhost:18789/v1</code>），即可在编辑器内使用 uClaw 管理的模型。</div>
+</div>
+
+<h2>📊 工具对比</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;margin-top:16px">
+<thead>
+<tr style="background:var(--bg-lighter);text-align:left">
+<th style="padding:12px;border-bottom:2px solid var(--border)">工具</th>
+<th style="padding:12px;border-bottom:2px solid var(--border)">类型</th>
+<th style="padding:12px;border-bottom:2px solid var(--border)">特点</th>
+<th style="padding:12px;border-bottom:2px solid var(--border)">适合谁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding:12px;border-bottom:1px solid var(--border)"><strong>iFlow CLI</strong></td>
+<td style="padding:12px;border-bottom:1px solid var(--border)">终端 CLI</td>
+<td style="padding:12px;border-bottom:1px solid var(--border)">免费模型、多智能体、上手简单</td>
+<td style="padding:12px;border-bottom:1px solid var(--border)">想快速体验 AI 编程的新手</td>
+</tr>
+<tr>
+<td style="padding:12px;border-bottom:1px solid var(--border)"><strong>Kimi CLI</strong></td>
+<td style="padding:12px;border-bottom:1px solid var(--border)">终端 CLI</td>
+<td style="padding:12px;border-bottom:1px solid var(--border)">开源、多模态、Agent + Shell 双模式</td>
+<td style="padding:12px;border-bottom:1px solid var(--border)">喜欢终端操作的开发者</td>
+</tr>
+<tr>
+<td style="padding:12px;border-bottom:1px solid var(--border)"><strong>Trae IDE</strong></td>
+<td style="padding:12px;border-bottom:1px solid var(--border)">图形编辑器</td>
+<td style="padding:12px;border-bottom:1px solid var(--border)">VS Code 基础、Builder 模式、免费</td>
+<td style="padding:12px;border-bottom:1px solid var(--border)">习惯图形界面的用户</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tip"><strong>🐣 小白建议：</strong>不知道选哪个？先试 <strong>iFlow CLI</strong>（最简单，注册就能用）或 <strong>Trae IDE</strong>（有图形界面，像用 Word 一样直观）。等熟练之后再试 Kimi CLI 解锁更多高级玩法。</div>
+
+</div>
+
+<!-- ===== 万能启动 U 盘 ===== -->
+<div class="page" id="page-linux-usb">
+<h1>万能启动 U 盘（裸机可用）</h1>
+<p>把 Ubuntu 系统 + OpenClaw 预装到 U 盘。<strong>任何 x86 电脑</strong>（Windows 台式机、Mac Intel、旧笔记本、裸机）插上 U 盘开机就能直接进入桌面 + AI 助手，不需要电脑上装任何系统。</p>
+
+<div class="tip"><strong>适用场景：</strong>机房裸机、淘汰旧电脑、不想碰原系统、给别人临时演示、专用 AI 工作站</div>
+
+<div class="card">
+<h3>万能启动 U 盘 vs 普通便携 U 盘</h3>
+<table>
+<tr><th></th><th>普通便携 U 盘</th><th>万能启动 U 盘</th></tr>
+<tr><td>原理</td><td>在已有系统上运行 U 盘里的脚本</td><td>从 U 盘直接启动完整操作系统</td></tr>
+<tr><td>依赖</td><td>需要电脑已有 macOS / Windows / Linux</td><td>不依赖任何已安装系统</td></tr>
+<tr><td>适用</td><td>有系统的电脑，临时用</td><td>裸机 / 旧电脑 / 不想碰原系统 / 专用 AI 工作站</td></tr>
+<tr><td>U 盘大小</td><td>4GB+</td><td>64GB+ 推荐（系统 + 持久化 + OpenClaw）</td></tr>
+<tr><td>速度</td><td>取决于 U 盘读写</td><td>必须 USB 3.0+（USB 2.0 会很卡）</td></tr>
+</table>
+</div>
+
+<h2>准备材料</h2>
+<table>
+<tr><th>材料</th><th>要求</th><th>说明</th></tr>
+<tr><td>U 盘</td><td><strong>32GB+ USB 3.0</strong></td><td>推荐 64GB USB 3.0+（USB 2.0 太慢不推荐）</td></tr>
+<tr><td>Ubuntu 24.04.4 ISO</td><td>Desktop 版</td><td>下载: <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/24.04.4/" target="_blank">清华镜像</a> 或 <a href="https://mirrors.aliyun.com/ubuntu-releases/24.04.4/" target="_blank">阿里镜像</a></td></tr>
+<tr><td>Ventoy</td><td>v1.0.99</td><td>下载: <a href="https://github.com/ventoy/Ventoy/releases" target="_blank">GitHub Releases</a>（开源引导管理器）</td></tr>
+</table>
+<div class="tip"><strong>为什么选 Ventoy + Ubuntu？</strong>Ventoy 支持 ISO 直接启动，更新系统只需替换 ISO 文件；Ubuntu 24.04 LTS 驱动兼容性最好，社区最大。</div>
+
+<h2>制作启动盘步骤</h2>
+
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>用 Ventoy 写入 U 盘</strong>
+<p style="color:var(--dim)">打开 Ventoy2Disk.exe，选择 U 盘，点 Install。<strong>注意：会格式化 U 盘，数据全丢！</strong></p>
+</div></div>
+
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>拷贝文件到 U 盘</strong>
+<p style="color:var(--dim)">将以下文件拷贝到 Ventoy 数据分区（U 盘可见分区）根目录：</p>
+<table>
+<tr><th>文件</th><th>说明</th></tr>
+<tr><td><code>ubuntu-24.04.4-desktop-amd64.iso</code></td><td>Ubuntu 系统镜像（~5.8GB）</td></tr>
+<tr><td><code>persistence.dat</code></td><td>持久化存储镜像（20GB，需 ext4 格式化）</td></tr>
+<tr><td><code>ventoy/ventoy.json</code></td><td>Ventoy 配置（自动加载持久化）</td></tr>
+<tr><td><code>uClaw-linux/</code></td><td>安装脚本目录</td></tr>
+</table>
+<div class="tip"><strong>自动化制作：</strong>也可以在 Windows PowerShell 中运行 <code>bootable/</code> 目录下的 4 个脚本，自动完成下载和拷贝。</div>
+</div></div>
+
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>启动测试</strong>
+<p style="color:var(--dim)">插入 U 盘，重启电脑，按启动键选择 USB → Ventoy 菜单出现 → 选择 Ubuntu → 进入桌面</p>
+</div></div>
+
+<h2>BIOS/UEFI 设置 USB 启动</h2>
+
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>插入 U 盘，重启电脑</strong></div></div>
+
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>进入 BIOS 启动菜单</strong>
+<p style="color:var(--dim)">开机时连续按启动键（不同品牌不同）：</p>
+<table>
+<tr><th>品牌</th><th>启动菜单键</th><th>BIOS 设置键</th></tr>
+<tr><td>联想 Lenovo</td><td><code>F12</code></td><td><code>F2</code></td></tr>
+<tr><td>戴尔 Dell</td><td><code>F12</code></td><td><code>F2</code></td></tr>
+<tr><td>惠普 HP</td><td><code>F9</code></td><td><code>F10</code></td></tr>
+<tr><td>华硕 ASUS</td><td><code>F8</code></td><td><code>F2 / Del</code></td></tr>
+<tr><td>宏碁 Acer</td><td><code>F12</code></td><td><code>F2</code></td></tr>
+<tr><td>小米</td><td><code>F12</code></td><td><code>F2</code></td></tr>
+<tr><td>华为</td><td><code>F12</code></td><td><code>F2</code></td></tr>
+<tr><td>自组装</td><td><code>F11 / F12</code></td><td><code>Del</code></td></tr>
+</table>
+</div></div>
+
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>选择 USB 设备启动</strong>
+<p style="color:var(--dim)">在启动菜单中选择你的 U 盘（通常显示为 USB 或 U 盘品牌名）</p>
+</div></div>
+
+<div class="warn"><strong>Secure Boot 问题：</strong>如果无法从 USB 启动，进入 BIOS 设置关闭 Secure Boot。路径通常是 Security → Secure Boot → Disabled。</div>
+
+<div class="card" style="background:#1a1a2e;border:2px solid #0f3460;margin-bottom:2rem;">
+<h3 style="margin-top:0;">快速命令参考（复制粘贴用）</h3>
+<p style="color:var(--dim)">在 Ubuntu 终端中：Ctrl+Shift+V 粘贴</p>
+
+<strong>第一步：格式化持久化（仅首次，格式化后必须重启）</strong>
+<pre><code>sudo bash /media/*/Ventoy/uClaw-linux/format-persistence.sh</code></pre>
+
+<strong>第二步：重启后，安装 OpenClaw</strong>
+<pre><code>sudo bash /media/*/Ventoy/uClaw-linux/setup-openclaw.sh</code></pre>
+
+<strong>第三步：启动 AI 助手</strong>
+<pre><code>bash /opt/uClaw/start-openclaw.sh</code></pre>
+
+<strong>启用 SSH（可选，让其他电脑远程控制）</strong>
+<pre><code>sudo bash /media/*/Ventoy/uClaw-linux/enable-ssh.sh</code></pre>
+<p style="color:var(--dim)">如果 U 盘脚本找不到，也可以手动启用（见下方"远程控制"章节）</p>
+</div>
+
+<h2>首次启动 Ubuntu</h2>
+
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>Ventoy 菜单选择 Ubuntu</strong>
+<p style="color:var(--dim)">从 USB 启动后进入 Ventoy 菜单，选择 Ubuntu ISO，等待进入桌面（约 1-3 分钟）</p>
+</div></div>
+
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>格式化持久化镜像（仅首次）</strong>
+<p style="color:var(--dim)">如果持久化镜像尚未格式化（Windows 无 WSL 的情况），打开终端运行：</p>
+<pre><code># 打开终端 (Ctrl+Alt+T)
+sudo bash /media/*/Ventoy/uClaw-linux/format-persistence.sh</code></pre>
+<p style="color:var(--dim)">格式化完成后<strong>必须重启</strong>，持久化才能生效</p>
+</div></div>
+
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>连接网络 + 安装 OpenClaw</strong>
+<p style="color:var(--dim)">连接 WiFi，然后运行安装脚本：</p>
+<pre><code>sudo bash /media/*/Ventoy/uClaw-linux/setup-openclaw.sh</code></pre>
+<p style="color:var(--dim)">脚本自动下载 Node.js + OpenClaw + QQ 插件，全部使用国内镜像，约 1-2 分钟</p>
+</div></div>
+
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>启动 AI 助手</strong>
+<p style="color:var(--dim)">桌面出现 <strong>"uClaw AI Assistant"</strong> 图标，双击即可使用</p>
+</div></div>
+
+<h2>日常使用</h2>
+<ul>
+<li>插入 U 盘 → 开机选 USB 启动 → Ventoy 菜单选 Ubuntu → 自动进入桌面</li>
+<li>双击桌面的 <strong>uClaw AI Assistant</strong> 图标启动</li>
+<li>浏览器自动打开控制台，开始使用</li>
+<li>所有数据保存在持久化镜像中，重启不丢</li>
+<li>关机前正常关闭 Ubuntu（不要直接拔 U 盘）</li>
+</ul>
+
+<h2>远程控制（用另一台电脑管理 Linux）</h2>
+
+<div class="card">
+<p><strong>适用场景：</strong>你有一台 Mac / Windows / Linux 电脑（比如 Mac mini），想远程控制这台从 U 盘启动的 Linux 机器——安装 OpenClaw、改配置、调试问题，全程不用跑到 Linux 电脑面前操作。</p>
+<p><strong>📋 快捷复制页：</strong><a href="ssh.html" target="_blank">uClaw.org/ssh.html</a> — 只有 3 步命令，方便在 Linux 浏览器上直接打开复制粘贴。</p>
+</div>
+
+<h3>方法一：用 U 盘自带脚本（推荐）</h3>
+<p>如果 U 盘里有 <code>uClaw-linux/</code> 目录：</p>
+<pre><code>sudo bash /media/*/Ventoy/uClaw-linux/enable-ssh.sh</code></pre>
+<p style="color:var(--dim)">脚本会自动安装 SSH、让你设密码、显示 IP 地址。</p>
+
+<h3>方法二：手动启用 SSH（3 条命令）</h3>
+<p>如果脚本找不到，或者没有 U 盘，手动也很简单：</p>
+
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>安装并启动 SSH 服务</strong>
+<pre><code>sudo apt update && sudo apt install -y openssh-server && sudo systemctl start ssh</code></pre>
+<p style="color:var(--dim)">粘贴后回车，可能需要输入密码确认</p>
+</div></div>
+
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>设置登录密码</strong>
+<pre><code>sudo passwd $USER</code></pre>
+<p style="color:var(--dim)">输入两次新密码。如果 Ubuntu Live 用户名是 ubuntu，密码就是给 ubuntu 用户设的</p>
+</div></div>
+
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>查看 IP 地址</strong>
+<pre><code>hostname -I</code></pre>
+<p style="color:var(--dim)">会显示类似 <code>192.168.18.45</code> 的地址，记下来</p>
+</div></div>
+
+<h3>从另一台电脑连接</h3>
+<p>在 Mac / Windows / Linux 的终端输入：</p>
+<pre><code>ssh ubuntu@192.168.18.xx</code></pre>
+<p style="color:var(--dim)">把 <code>192.168.18.xx</code> 换成上一步显示的实际 IP，输入刚才设的密码即可连接。</p>
+
+<div class="tip"><strong>配合 Claude Code 使用：</strong>在 Mac mini 上打开 Claude Code，告诉它 <code>ssh ubuntu@192.168.18.xx 密码是 xxx</code>，Claude Code 就能通过 Bash 工具远程执行命令——安装 OpenClaw、改配置、调试，全程自动化。</div>
+
+<div class="tip"><strong>外网远程（不在同一 WiFi）：</strong>两台电脑都安装 <a href="https://tailscale.com" target="_blank">Tailscale</a>，用同一账号登录，即可通过 Tailscale IP（100.x.x.x）从任何地方连接，无需公网 IP。</div>
+
+<h2>常见问题</h2>
+
+<h3>USB 启动不了</h3>
+<ul>
+<li>检查 BIOS 启动顺序，确保 USB 排在硬盘前面</li>
+<li>关闭 Secure Boot（BIOS → Security → Secure Boot → Disabled）</li>
+<li>换一个 USB 口试试（优先 USB 3.0 蓝色口）</li>
+<li>Legacy/CSM 和 UEFI 模式都试试</li>
+</ul>
+
+<h3>持久化不生效（重启后配置丢失）</h3>
+<ul>
+<li>确认 persistence.dat 已格式化为 ext4（运行 <code>format-persistence.sh</code>）</li>
+<li>确认 ventoy/ventoy.json 配置正确（image 路径与 ISO 文件名匹配）</li>
+<li>格式化后必须重启才能生效</li>
+</ul>
+
+<h3>运行很慢</h3>
+<ul>
+<li>使用 USB 3.0 或更快的 U 盘 + USB 3.0 接口</li>
+<li>首次加载约 1-3 分钟属正常</li>
+<li>推荐品牌：三星 BAR Plus、闪迪 CZ880、金士顿</li>
+</ul>
+</div>
+
+<!-- ===== 中国区原生安装教程 ===== -->
+<div class="page" id="page-china-install">
+<h1>中国区原生安装教程</h1>
+<p>不用 U 盘，直接在中国网络环境下从零安装 OpenClaw。全程使用国内镜像，无需翻墙。</p>
+
+<div class="card">
+<p><strong>适用场景：</strong>你已经有一台能联网的电脑（Mac / Windows / Linux），想直接安装 OpenClaw，不需要 U 盘。</p>
+</div>
+
+<h2>第一步：安装 Node.js</h2>
+<p>OpenClaw 需要 Node.js v22 或以上版本。</p>
+
+<h3>方法 A：官网直接下载（最简单）</h3>
+<ul>
+<li><strong>Node.js 中文网：</strong><a href="https://nodejs.cn/download/" target="_blank">nodejs.cn/download</a>（国内直连，速度快）</li>
+<li>下载 <code>.pkg</code>（Mac）或 <code>.msi</code>（Windows）安装包，双击安装</li>
+</ul>
+
+<h3>方法 B：使用 nvm 版本管理器（推荐开发者）</h3>
+<pre><code># 1. 安装 nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+
+# 2. 设置 Node.js 国内镜像（关键！否则下载很慢）
+export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node
+echo 'export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node' >> ~/.zshrc
+
+# 3. 安装 Node.js 22
+nvm install 22
+nvm use 22
+
+# 4. 验证
+node -v   # 应显示 v22.x.x</code></pre>
+
+<h3>方法 C：使用 fnm（更快的版本管理器，基于 Rust）</h3>
+<pre><code># Mac/Linux:
+curl -fsSL https://fnm.vercel.app/install | bash
+
+# Windows (PowerShell):
+winget install Schniz.fnm
+
+# 设置国内镜像
+export FNM_NODE_DIST_MIRROR=https://npmmirror.com/mirrors/node
+echo 'export FNM_NODE_DIST_MIRROR=https://npmmirror.com/mirrors/node' >> ~/.zshrc
+
+# 安装 Node.js 22
+fnm install 22 && fnm use 22</code></pre>
+
+<h2>第二步：设置 npm 国内镜像</h2>
+<p>安装完 Node.js 后，<strong>必须先换镜像源</strong>，否则安装 OpenClaw 会超时。</p>
+
+<pre><code># 推荐：淘宝 npmmirror（最稳定，速度最快）
+npm config set registry https://registry.npmmirror.com
+
+# 验证
+npm config get registry
+# 应返回: https://registry.npmmirror.com/</code></pre>
+
+<h3>国内可用的 npm 镜像源</h3>
+<table>
+<tr><th>镜像源</th><th>地址</th><th>说明</th></tr>
+<tr><td><strong>淘宝 npmmirror</strong></td><td><code>https://registry.npmmirror.com</code></td><td>首选，最快最稳</td></tr>
+<tr><td>腾讯云</td><td><code>https://mirrors.cloud.tencent.com/npm/</code></td><td>腾讯云加速</td></tr>
+<tr><td>华为云</td><td><code>https://mirrors.huaweicloud.com/repository/npm/</code></td><td>华为云加速</td></tr>
+<tr><td>阿里云</td><td><code>https://npm.aliyun.com</code></td><td>阿里云加速</td></tr>
+<tr><td>中科大</td><td><code>https://mirrors.ustc.edu.cn/</code></td><td>高校镜像</td></tr>
+<tr><td>清华大学</td><td><code>https://mirrors.tuna.tsinghua.edu.cn/</code></td><td>高校镜像</td></tr>
+</table>
+
+<div class="warn"><strong>注意：</strong>旧域名 <code>registry.npm.taobao.org</code> 已于 2024 年 1 月停止服务，请使用新域名 <code>registry.npmmirror.com</code>。</div>
+
+<h3>使用 nrm 快速切换镜像</h3>
+<pre><code># 安装 nrm 镜像源管理工具
+npm install -g nrm
+
+nrm ls          # 查看所有可用镜像源
+nrm use taobao  # 一键切换淘宝源
+nrm test        # 测速，看哪个最快</code></pre>
+
+<h2>第三步：安装 OpenClaw</h2>
+<pre><code># 全局安装
+npm install -g openclaw@latest
+
+# 如果超时，手动指定镜像：
+npm install -g openclaw@latest --registry=https://registry.npmmirror.com
+
+# 验证
+openclaw --version</code></pre>
+
+<h3>用 pnpm 安装（更快）</h3>
+<pre><code># 如果没有 pnpm，先安装
+npm install -g pnpm
+
+# 用 pnpm 安装 OpenClaw
+pnpm add -g openclaw@latest
+pnpm approve-builds -g
+openclaw onboard --install-daemon</code></pre>
+
+<h3>从源码构建（开发者）</h3>
+<pre><code>git clone https://github.com/openclaw/openclaw.git
+cd openclaw && pnpm install && pnpm ui:build && pnpm build
+pnpm link --global
+openclaw --version</code></pre>
+
+<h3>常见安装问题</h3>
+<div class="warn"><strong>sharp 构建失败？</strong>添加环境变量跳过本地编译：
+<pre><code>SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest</code></pre></div>
+
+<div class="warn"><strong>找不到 openclaw 命令？</strong>PATH 未包含全局 bin 目录：
+<pre><code># 添加到 ~/.zshrc 或 ~/.bashrc
+export PATH="$(npm prefix -g)/bin:$PATH"
+source ~/.zshrc</code></pre></div>
+
+<div class="tip"><strong>Windows 用户建议：</strong>推荐使用 WSL2（Windows Subsystem for Linux）安装，兼容性最好。原生 Windows 可能遇到路径和权限问题。</div>
+
+<h2>第四步：配置国产 AI 模型</h2>
+<p>启动配置向导：</p>
+<pre><code># 启动引导向导 + 安装后台守护进程
+openclaw onboard --install-daemon
+
+# 或只启动引导向导
+openclaw onboard</code></pre>
+
+<h3>国产模型注册与配置</h3>
+<table>
+<tr><th>模型</th><th>注册地址</th><th>API Base URL</th><th>推荐场景</th></tr>
+<tr><td><strong>DeepSeek</strong></td><td><a href="https://platform.deepseek.com/" target="_blank">platform.deepseek.com</a></td><td><code>https://api.deepseek.com/v1</code></td><td>编程首选，极便宜</td></tr>
+<tr><td><strong>Kimi</strong></td><td><a href="https://platform.moonshot.cn/" target="_blank">platform.moonshot.cn</a></td><td><code>https://api.moonshot.cn/v1</code></td><td>长文档，256K 上下文</td></tr>
+<tr><td><strong>通义千问</strong></td><td><a href="https://dashscope.console.aliyun.com/" target="_blank">dashscope.console.aliyun.com</a></td><td>配置向导选 Qwen</td><td>免费额度大</td></tr>
+<tr><td><strong>智谱 GLM</strong></td><td><a href="https://open.bigmodel.cn/" target="_blank">open.bigmodel.cn</a></td><td>配置向导选 Zhipu</td><td>学术场景</td></tr>
+<tr><td><strong>豆包</strong></td><td><a href="https://console.volcengine.com/ark" target="_blank">console.volcengine.com/ark</a></td><td>配置向导选 Volcano</td><td>火山引擎生态</td></tr>
+<tr><td><strong>MiniMax</strong></td><td><a href="https://platform.minimaxi.com/" target="_blank">platform.minimaxi.com</a></td><td>配置向导选 MiniMax</td><td>语音多模态</td></tr>
+</table>
+
+<div class="tip"><strong>推荐首选 DeepSeek：</strong>注册即送免费额度，API 无需翻墙，编程能力强，价格约 1 元/百万 tokens。</div>
+
+<h3>配置示例（DeepSeek）</h3>
+<pre><code># 在配置向导中：
+# 1. 选择 Custom Provider
+# 2. 填写：
+#    API Base URL: https://api.deepseek.com/v1
+#    API Key: sk-xxxxxxxx（在 platform.deepseek.com 获取）
+#    Model: deepseek-chat</code></pre>
+
+<h2>第五步：启动与验证</h2>
+<pre><code># 启动网关
+openclaw gateway run
+
+# 查看状态
+openclaw gateway status
+
+# 浏览器打开控制台
+# http://127.0.0.1:18789</code></pre>
+
+<h2>常见问题</h2>
+
+<h3>npm install 超时 / ECONNREFUSED</h3>
+<pre><code># 1. 确认镜像源已切换
+npm config get registry
+# 应该是 https://registry.npmmirror.com/
+
+# 2. 如果还超时，试其他镜像
+npm config set registry https://mirrors.cloud.tencent.com/npm/
+
+# 3. 清除缓存重试
+npm cache clean --force
+npm install -g openclaw@latest</code></pre>
+
+<h3>node: command not found</h3>
+<pre><code># 重新打开终端，或手动加载配置
+source ~/.zshrc   # macOS
+source ~/.bashrc  # Linux</code></pre>
+
+<h3>openclaw onboard 报错</h3>
+<pre><code># 确认 Node.js 版本
+node -v  # 需要 v22+
+
+# 如果版本太低
+nvm install 22 && nvm use 22
+# 或
+fnm install 22 && fnm use 22</code></pre>
+
+<h3>API 调用失败</h3>
+<ul>
+<li>检查 API Key 是否正确（注意不要多余空格）</li>
+<li>检查 API Base URL 是否正确</li>
+<li>确认模型名称正确（如 <code>deepseek-chat</code>）</li>
+<li>国产模型 API 直连，不需要翻墙</li>
+</ul>
+
+<div class="tip"><strong>运行诊断：</strong><code>openclaw doctor --repair</code> 可以自动检测和修复常见问题。</div>
+</div>
+
+<!-- ===== Kimi 配置 ===== -->
+<div class="page" id="page-kimi">
+<h1>Kimi / 月之暗面 配置</h1>
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>注册</strong><br>访问 <a href="https://platform.moonshot.cn/" target="_blank">platform.moonshot.cn</a>，注册账号。</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>获取 API Key</strong><br>控制台 → 开发者 → 创建密钥 → 复制保存。</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>配置</strong>
+<pre><code>openclaw onboard
+# 选择 Moonshot AI
+# API Key: 粘贴你的 Key
+# Model: moonshot-v1-128k（或 moonshot-v1-8k）</code></pre>
+<p>或手动配置 Base URL：<code>https://api.moonshot.cn/v1</code></p>
+</div></div>
+</div>
+
+<!-- ===== 通义千问配置 ===== -->
+<div class="page" id="page-qwen">
+<h1>通义千问 Qwen 配置</h1>
+<p>阿里云生态，免费额度大，适合免费体验。</p>
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>注册阿里云</strong><br>访问 <a href="https://dashscope.console.aliyun.com/" target="_blank">dashscope.console.aliyun.com</a>，用支付宝一键登录。</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>开通 DashScope</strong><br>进入控制台 → 开通 DashScope 服务（免费）。</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>创建 API Key</strong><br>控制台 → API Key 管理 → 创建 → 复制保存。</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-content"><strong>配置</strong>
+<pre><code>openclaw onboard
+# 选择 Qwen
+# API Key: 粘贴你的 Key</code></pre></div></div>
+</div>
+
+<!-- ===== OpenRouter 统一网关 ===== -->
+<div class="page" id="page-openrouter">
+<h1>OpenRouter 统一网关</h1>
+<p>OpenRouter 汇聚了主流 AI 模型，一个 API Key 用所有模型，部分有免费额度。</p>
+<div class="step"><div class="step-num">1</div><div class="step-content"><strong>注册 OpenRouter</strong><br>访问 <a href="https://openrouter.ai" target="_blank">openrouter.ai</a>，GitHub 登录。</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-content"><strong>获取 API Key</strong><br>Keys → Create Key → 复制。</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-content"><strong>配置</strong>
+<pre><code>openclaw onboard
+# 选择 OpenRouter
+# API Key: 粘贴
+# Model: 选择你要用的模型</code></pre></div></div>
+
+<h2>直连方式</h2>
+<table>
+<tr><th>模型</th><th>注册地址</th><th>Base URL</th></tr>
+<tr><td>Claude</td><td><a href="https://console.anthropic.com/" target="_blank">console.anthropic.com</a></td><td>默认即可</td></tr>
+<tr><td>OpenAI</td><td><a href="https://platform.openai.com/" target="_blank">platform.openai.com</a></td><td>默认即可</td></tr>
+<tr><td>Gemini</td><td><a href="https://ai.google.dev/" target="_blank">ai.google.dev</a></td><td>默认即可</td></tr>
+</table>
+</div>
+
+<!-- ===== 定时任务 ===== -->
+<div class="page" id="page-cron">
+<h1>定时任务</h1>
+<p>通过 cron 设置自动执行的任务，让 AI 助手定时完成工作。</p>
+<pre><code># 每天早上 8 点发送天气预报
+openclaw cron add "0 8 * * *" "查看今天深圳天气并发送到飞书"
+
+# 每小时检查邮件
+openclaw cron add "0 * * * *" "检查新邮件，有重要的通知我"
+
+# 每天下午 6 点总结工作
+openclaw cron add "0 18 * * *" "总结今天的工作进度"
+
+# 查看所有定时任务
+openclaw cron list</code></pre>
+</div>
+
+<!-- ===== 多模型与省钱 ===== -->
+<div class="page" id="page-multi-model">
+<h1>多模型与省钱技巧</h1>
+<ol>
+<li><strong>日常对话</strong>用 DeepSeek（~1元/百万 token），复杂任务切 Claude</li>
+<li>用 <strong>OpenRouter</strong> 统一管理多个模型，一个 Key 用所有</li>
+<li>为不同聊天平台配置不同模型（QQ 用便宜的，工作飞书用好的）</li>
+<li>善用<strong>免费额度</strong>：通义千问、Gemini 都有大量免费额度</li>
+</ol>
+</div>
+
+<!-- ===== 安全加固 ===== -->
+<div class="page" id="page-security">
+<h1>安全加固</h1>
+<ul>
+<li><strong>API Key 安全</strong>：不要在群聊中发送 API Key，不要提交到 GitHub</li>
+<li><strong>白名单</strong>：所有聊天平台务必设置 <code>allowFrom</code>，限制谁能用你的机器人</li>
+<li><strong>Token 管理</strong>：定期轮换 Gateway Token 和 Bot Token</li>
+<li><strong>网络安全</strong>：Gateway 默认只监听 <code>127.0.0.1</code>，暴露到公网请配置反向代理 + HTTPS</li>
+<li><strong>权限最小化</strong>：只给聊天平台必要的权限，不要开放所有权限</li>
+</ul>
+</div>
+
+<!-- ===== 配置文件参考 ===== -->
+<div class="page" id="page-config-ref">
+<h1>配置文件参考</h1>
+<p>配置文件位置：<code>~/.openclaw/openclaw.json</code>（uClaw 用户：<code>uClaw/data/.openclaw/openclaw.json</code>）</p>
+
+<pre><code>{
+  "gateway": {
+    "mode": "local",
+    "port": 18789,
+    "bind": "127.0.0.1",
+    "auth": { "token": "你的Token" }
+  },
+  "models": {
+    "providers": {
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com/v1",
+        "apiKey": "sk-xxx",
+        "api": "openai-completions",
+        "models": [{ "id": "deepseek-chat", "contextWindow": 128000 }]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": { "primary": "deepseek/deepseek-chat" }
+    }
+  },
+  "channels": {
+    "telegram": { "enabled": true, "botToken": "xxx:xxx" },
+    "qqbot": { "enabled": true, "appId": "xxx", "appSecret": "xxx" }
+  }
+}</code></pre>
+<div class="tip">配置文件支持<strong>热重载</strong>，修改后自动生效，无需重启网关。</div>
+</div>
+
+
+</main>
+
+<script>
+// Page navigation
+document.querySelectorAll('.nav-item[data-page]').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    const pageId = this.dataset.page;
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    // Show target page
+    const target = document.getElementById('page-' + pageId);
+    if (target) target.classList.add('active');
+    // Update nav active state
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    this.classList.add('active');
+    // Scroll to top
+    window.scrollTo(0, 0);
+    // Close mobile sidebar
+    document.querySelector('.sidebar').classList.remove('open');
+  });
+});
+
+// Search filter
+function filterNav(query) {
+  query = query.toLowerCase();
+  document.querySelectorAll('.nav-item[data-page]').forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = !query || text.includes(query) ? '' : 'none';
+  });
+  if (query) {
+    document.querySelectorAll('.nav-group').forEach(g => g.classList.add('open'));
+  }
+}
+</script>
+</body>
+</html>

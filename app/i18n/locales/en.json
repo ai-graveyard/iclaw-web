@@ -4,6 +4,7 @@
     "aiPower": "AI Power",
     "useCases": "Use Cases",
     "design": "Design",
+    "guide": "Guide",
     "pricing": "Pricing",
     "buyNow": "Buy Now"
   },
@@ -344,6 +345,7 @@
     "subtitle": "USB AI Assistant",
     "desc": "Pocket-sized AI that turns any computer into your personal AI workstation. Just plug in and go.",
     "buy": "Buy Now",
+    "guide": "View Guide",
     "backHome": "Back to Home",
     "featuresLabel": "Why uClaw",
     "featuresHeading": "AI in your pocket.",

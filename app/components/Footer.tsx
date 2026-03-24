@@ -4,6 +4,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Footer() {
   const { t } = useLanguage();
+  const guideHref = "/uClaw-guide.html";
 
   const footerLinks = [
     {
@@ -27,7 +28,12 @@ export default function Footer() {
     {
       title: t("footer.sections.support") as string,
       links: [
-        { label: t("footer.links.documentation") as string, href: "#" },
+        {
+          label: t("footer.links.documentation") as string,
+          href: guideHref,
+          target: "_blank",
+          rel: "noreferrer",
+        },
         { label: t("footer.links.community") as string, href: "#" },
         { label: t("footer.links.contact") as string, href: "#" },
         { label: t("footer.links.faq") as string, href: "#" },
@@ -68,6 +74,8 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
+                      target={link.target}
+                      rel={link.rel}
                       className="text-sm text-[var(--gray-400)] hover:text-[var(--foreground)] transition-colors duration-300"
                     >
                       {link.label}

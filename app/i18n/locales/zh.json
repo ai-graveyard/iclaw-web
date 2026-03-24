@@ -4,6 +4,7 @@
     "aiPower": "AI 能力",
     "useCases": "使用场景",
     "design": "设计",
+    "guide": "使用指南",
     "pricing": "价格",
     "buyNow": "立即购买"
   },
@@ -344,6 +345,7 @@
     "subtitle": "U 盘版 AI 助手",
     "desc": "口袋大小的 AI，让任何电脑变成你的私人 AI 工作站。插上即用。",
     "buy": "立即购买",
+    "guide": "查看使用指南",
     "backHome": "返回首页",
     "featuresLabel": "为什么选 uClaw",
     "featuresHeading": "口袋里的 AI。",

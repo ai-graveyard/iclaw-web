@@ -35,6 +35,22 @@ export default function UClawDetailSection() {
           <p className="text-xl text-[var(--gray-400)] max-w-2xl mx-auto">
             {t("uclawPage.desc") as string}
           </p>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="#pricing"
+              className="inline-flex items-center justify-center bg-foreground text-background px-8 py-3 rounded-full text-base font-semibold hover:opacity-90 transition-all duration-300"
+            >
+              {t("uclawPage.buy") as string}
+            </a>
+            <a
+              href="/uClaw-guide.html"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center border border-(--gray-600) text-foreground px-8 py-3 rounded-full text-base font-medium hover:border-(--gray-400) transition-all duration-300"
+            >
+              {t("uclawPage.guide") as string}
+            </a>
+          </div>
         </FadeIn>
 
         {/* Product image */}
